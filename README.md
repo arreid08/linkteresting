@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project 3: Linkful
 
-## Available Scripts
+## Project Description:
+We will create an app to manage links/bookmarks. A user will login (login authentication only with post mvp) and see a page of their collections. User can open a collection to view all the links or add a new collection. Inside the collection the user can add delete or edit a link. A new link will have a name and a link address. Post MVP add tags and tag search functionality.
 
-In the project directory, you can run:
+User Stories. As _ I want _ so I can _
+As an everyday user I want to group my bookmarks so I can be more organized.
+As a designer I want to save multiple links so I can review to get ideas, but not overload my bookmarks.
 
-### `npm start`
+## Project Links
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Wireframes
+[LandingPage] (https://drive.google.com/open?id=1m0CMqlXUoUda1lpd-76MzYYrcVlTPdDRrELhq-Az4TQ)
+[PostLoginPage] (https://drive.google.com/open?id=1LtstfmYZrgakQay9rjemwya3ooOqyAgn9auc94jC8Uk)
+[CollectionsPage] (https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
+[CollectionDetails] (https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
 
-### `npm test`
+## MVL/ Post-MVP
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### MVP: 
+Landing Page - Login with just your name.
+Users can create collections of links
+Each collection can be named and have a description
+Each collection will be a different color
 
-### `npm run build`
+### Post-MVP: 
+Each collection will show a picture from one of the links instead of a color.
+Login/User Validation
+Admin page to manage user accounts
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Structure:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React Routes:
+Login
+Home:user
+Collection/:name
 
-### `npm run eject`
+### Express routes:
+Create User
+Get User Collections
+Get One Collection
+Get One Link
+Post Link
+Post Collection
+Edit Collection
+Edit Link
+Delete Link
+Delete Collection
+Delete User
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### React Components:
+Header
+LoginPage
+Home button<Link>
+UserHomePage
+	-Add Collection
+	-CollectionTile<Link>
+Collection
+Links
+Edit Collection
+-Delete Collection
+-Add Link
+-Delete Link
+-Change Name
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Time Frames 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Additional Libraries 
 
-## Learn More
+## Issues and Resolutions 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
