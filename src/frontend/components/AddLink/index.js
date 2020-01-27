@@ -48,22 +48,40 @@ function AddLink(props) {
     })
   }
 
+  const handleCancel = (e) => {
+    console.log("cancel")
+    e.preventDefault()
+    return(
+        props.history.push('/collection-detail')
+    )
+  }
+
   return (
-    <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-      <label className="label">
-        Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
-      </label>
-      <br/>
-      <label className="label">
-        Link: <input className="text-box" type="text" onChange={handleChangeLink} />
-      </label>
-      <br/>
-      {/* <label className="label">
-        Tag: <input className="text-box" type="text" onChange={handleChangeTag} />
-      </label>
-      <br/> */}
-      <input className="button" type="submit" value="Submit" />
-    </form>
+    <>
+      <h1>Add a new link</h1>
+      <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
+        <label className="label">
+          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+        </label>
+        <br/>
+        <label className="label">
+          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
+        </label>
+        <br/>
+        {/* <label className="label">
+          Tag: <input className="text-box" type="text" onChange={handleChangeTag} />
+        </label>
+        <br/> */}
+        <input className="button" type="submit" value="Submit" />
+      </form>
+      <button
+            className="button" 
+            type="submit" 
+            value="Cancel"
+            onClick={handleCancel}
+        >Cancel
+      </button>
+    </>
   )
 }
 
