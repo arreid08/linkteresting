@@ -1,11 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Collection.css'
 
 function Collection() {
   return (
-    <div className="Header">
-          <h1>Hello</h1>
+    <div className="Collection">
+        <nav>
+            <Link to="/add-link">New Link</Link>
+            <Link to="/user-home">Return to User Home Page</Link>
+        </nav>
+        
+
     </div>
   )
 }

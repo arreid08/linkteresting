@@ -27,9 +27,11 @@ function Login() {
         <div>
             <p>Linkteresting is a place to store all your bookmarks in categories so you never lose them.</p>
             <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-                <label className="label">
-                Username: <input className="text-box" type="text" onChange={handleChangeUser} />
-                </label>
+                <div className="form-group">
+                    <label className="label">
+                    Username: <input className="form-control" type="text" onChange={handleChangeUser} />
+                    </label>
+                </div>
                 <br/>
                 {/* <label className="label">
                 Password: <input className="text-box" type="text" onChange={handleChangePassword} />
