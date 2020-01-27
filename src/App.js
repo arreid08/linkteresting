@@ -1,52 +1,37 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import Header from './frontend/components/Header'
 import Login from './frontend/components/Login'
 import UserHome from './frontend/components/UserHome'
 // import Edit from './frontend/components/Edit'
-// import Add from './frontend/components/Add'
+import AddCollection from './frontend/components/AddCollection'
+import AddLink from './frontend/components/AddLink'
 // import Delete from './frontend/components/Delete'
+import Collection from './frontend/components/Collection'
 
 function App() {
-
-  const [user, setUser] = useState([])
-
-  useEffect(() => {
-    fetchUserInfo()
-  }, [])
-
-  const fetchUserInfo = () => {
-    fetch('http://localhost:3000/')
-      .then(res => res.json())
-      .then(res => {
-        setUser(res)
-      }, [])
-      .catch((error) => {
-        console.log("error", error)
-      })
-  }
 
   return (
     <div className="App">
       <Header />
       <main>
         <Switch>
-
           <Route path="/" exact>
             <Login />
           </Route>
-
-          <Route
-            path="/userhome"
-            render={props => (
-              <UserHome
-                {...props}
-                user={user}
-              />
-            )}
-          ></Route>
-          
+          <Route path="/user-home">
+            <UserHome />
+          </Route>
+          <Route path="/add-collection">
+            <AddCollection />
+          </Route>
+          <Route path="/add-link">
+            <AddLink />
+          </Route>
+          <Route path="/collection-details">
+            <Collection />
+          </Route>
         </Switch>
       </main>
     </div>
