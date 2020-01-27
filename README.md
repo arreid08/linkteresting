@@ -12,10 +12,12 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 - [API]()
 
 ## Wireframes
-- [LandingPage](https://drive.google.com/open?id=1m0CMqlXUoUda1lpd-76MzYYrcVlTPdDRrELhq-Az4TQ)
-- [PostLoginPage](https://drive.google.com/open?id=1LtstfmYZrgakQay9rjemwya3ooOqyAgn9auc94jC8Uk)
-- [CollectionsPage](https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
-- [CollectionDetails](https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
+- [Architecture](https://drive.google.com/open?id=1zC-cR2DbKCw5VnstRQovnChTutAAF_zpSqdtvIx9wiQ)
+- [Landing Page](https://drive.google.com/open?id=1m0CMqlXUoUda1lpd-76MzYYrcVlTPdDRrELhq-Az4TQ)
+- [UserHome (New User) Page](https://drive.google.com/open?id=1LtstfmYZrgakQay9rjemwya3ooOqyAgn9auc94jC8Uk)
+- [UserHome (Established User) Page](https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
+- [Collections Page](https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
+
 
 ## MVL/ Post-MVP
 
@@ -29,7 +31,7 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 - Each collection will show a picture from one of the links instead of a color.
 - Login/User Validation
 - Admin page to manage user accounts
-- Sharability
+- Sharability (sharing collections with other users)
 
 ## Structure:
 
@@ -96,6 +98,7 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 | Working with API | H | 4hr| hr | hr |
 | Styling | H | 5hr| hr | hr |
 | Documentation | H | 3hr| hr | hr |
+| Demo Page/ Modal | H | 3hr| hr | hr |
 | Total | H | 52hrs | hr | hr |
 
 ## Additional Libraries 
