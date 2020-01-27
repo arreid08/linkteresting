@@ -8,14 +8,14 @@ As an everyday user I want to group my bookmarks so I can be more organized.
 As a designer I want to save multiple links so I can review to get ideas, but not overload my bookmarks.
 
 ## Project Links
-[Linkteresting]()
-[API]()
+- [Linkteresting]()
+- [API]()
 
 ## Wireframes
-[LandingPage](https://drive.google.com/open?id=1m0CMqlXUoUda1lpd-76MzYYrcVlTPdDRrELhq-Az4TQ)
-[PostLoginPage](https://drive.google.com/open?id=1LtstfmYZrgakQay9rjemwya3ooOqyAgn9auc94jC8Uk)
-[CollectionsPage](https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
-[CollectionDetails](https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
+- [LandingPage](https://drive.google.com/open?id=1m0CMqlXUoUda1lpd-76MzYYrcVlTPdDRrELhq-Az4TQ)
+- [PostLoginPage](https://drive.google.com/open?id=1LtstfmYZrgakQay9rjemwya3ooOqyAgn9auc94jC8Uk)
+- [CollectionsPage](https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
+- [CollectionDetails](https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
 
 ## MVL/ Post-MVP
 
@@ -66,25 +66,33 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 - Delete Link
 - Change Name
 
+## Components
+| Component | Description | 
+| --- | :---: |  
+| App | This will make the initial data pull and include React Router| 
+| Header | This will render the header include the nav | 
+| Login | User can login to account to store their links | 
+| User Home | User's full library of collections | 
+| Collection | User's individual library of categorized collection | 
+| Add | User has ability to add new links to each collection | 
+| Edit | User has ability to edit links within each collection | 
+| Delete | User has ability to delete links within each collection | 
 
 ## Time Frames 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Planning & Wireframing | H | 3hrs| 3hrs | 3hrs |
 | Build file structure | H | 2hr| 2hr | 2hr |
-
 | Controllers/ Routes | H | 4hr| hr | hr |
 | Models | H | 2hr| hr | hr |
 | Seeding | H | 2hr| hr | hr |
 | Tests | H | 3hr| hr | hr |
-
 | Login Component | H | 4hr| hr | hr |
 | Edit/Add/Delete Components | H | 5hr| hr | hr |
 | UserHome/Collections Components | H | 4hr| hr | hr |
 | App Component | H | 2hr| hr | hr |
 | Header Component | H | 1hr| hr | hr |
 | Tests | H | 3hr| hr | hr |
-
 | Working with API | H | 4hr| hr | hr |
 | Styling | H | 5hr| hr | hr |
 | Documentation | H | 3hr| hr | hr |
