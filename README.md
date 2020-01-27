@@ -102,6 +102,7 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 | Total | H | 52hrs | hr | hr |
 
 ## Additional Libraries 
+- Bootstrap
 
 
 ## Issues and Resolutions 

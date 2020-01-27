@@ -32,9 +32,11 @@ function App() {
       <Header />
       <main>
         <Switch>
+
           <Route path="/" exact>
             <Login />
           </Route>
+
           <Route
             path="/userhome"
             render={props => (
@@ -44,6 +46,7 @@ function App() {
               />
             )}
           ></Route>
+          
         </Switch>
       </main>
     </div>
