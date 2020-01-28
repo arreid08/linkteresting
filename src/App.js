@@ -33,10 +33,10 @@ function App() {
           <Route path="/collection-details">
             <Collection />
           </Route>
-          <Route path="/delete-collection">
+          <Route path="/delete-collection/:collectionId">
             <DeleteCollection />
           </Route>
-          <Route path="/delete-link">
+          <Route path="/delete-link/:linkId">
             <DeleteLink />
           </Route>
         </Switch>
