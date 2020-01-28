@@ -45,17 +45,21 @@ function AddCollection(props) {
   }
 
   return (
-    <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-      <label className="label">
-        Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
-      </label>
-      <br/>
-      <label className="label">
-        Description: <input className="text-box" type="text" onChange={handleChangeDescription} />
-      </label>
-      <br/>
-      <input className="button" type="submit" value="Submit" />
-    </form>
+    <>
+      <h1>Add a new collection</h1>
+      <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
+        <label className="label">
+          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+        </label>
+        <br/>
+        <label className="label">
+          Description: <input className="text-box" type="text" onChange={handleChangeDescription} />
+        </label>
+        <br/>
+        <input className="button" type="submit" value="Submit" />
+        <input className="button" type="submit" value="Cancel" />
+      </form>
+    </>
   )
 }
 

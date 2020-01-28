@@ -1,9 +1,10 @@
 import React from 'react'
 // import Collection from './Collection'
 import './UserHome.css'
+import { Link } from 'react-router-dom';
 
 function UserHome() {
-
+  const { user } = props;
   // const [user, setUser] = useState([])
 
   // useEffect(() => {
@@ -22,32 +23,25 @@ function UserHome() {
   // }
 
   return (
-    <div class="Header">
-          <h1 class="text-center mb-4">Username Collections</h1>
-          <div class="container my-container">
-            <div class="row my-row">
-              <div class="col-lg my-col">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-            </div>
-
-            <div class="row my-row">
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-            </div>
-
-            <div class="row my-row">
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-              <div class="col-lg">Collection</div>
-            </div>
-          </div>
+    <>
+    <div className="col-md-6">
+        <div className="card mb-4 shadow-sm">
+            <div className="card-body">
+                <h2> 
+                    UserName Collections
+                </h2>
+                <h5>  </h5>
+                <p className="card-text">
+                    Users
+                </p>
+                <Link to= {`collections// ${}`} className="btn btn-secondary btn-xs btn-block">
+                    Collection
+                </Link>
+            </div> 
+        </div>
     </div>
-  )
+    </>
+)
 }
 
 export default UserHome
