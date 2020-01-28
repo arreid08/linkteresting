@@ -18,27 +18,13 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route path="/" exact>
-            <Login />
-          </Route>
-          <Route path="/user-home">
-            <UserHome />
-          </Route>
-          <Route path="/add-collection">
-            <AddCollection />
-          </Route>
-          <Route path="/add-link">
-            <AddLink />
-          </Route>
-          <Route path="/collection-details">
-            <Collection />
-          </Route>
-          <Route path="/delete-collection/:collectionId">
-            <DeleteCollection />
-          </Route>
-          <Route path="/delete-link/:linkId">
-            <DeleteLink />
-          </Route>
+          <Route path="/" component={Login} exact />
+          <Route path="/user-home" component={UserHome} />
+          <Route path="/add-collection" component={AddCollection} />
+          <Route path="/add-link" component={AddLink} />
+          <Route path="/collection-details" component={Collection} />
+          <Route path="/delete-collection/:collectionId" component={DeleteCollection} />
+          <Route path="/delete-link/:linkId" component={DeleteLink} />
         </Switch>
       </main>
     </div>

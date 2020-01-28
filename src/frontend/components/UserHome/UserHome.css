@@ -2,14 +2,33 @@
      margin: 30px;
  }
 
-.my-container {
-    border: 1px solid black;
+ .card {
+     margin: auto;
+ }
+
+ .card-body {
+     text-decoration: none;
+     color: black;
+     padding: 30px;
+     border-radius: 0;
+     border: black 1px solid;
+ }
+
+ .card-body:hover {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+ }
+
+h2 {
+    padding-bottom: 20px;
 }
 
-.my-row {
-    border: 1px solid black;
-}
-
-.my-col {
-    border: 1px solid black;
-}
+ .btn {
+    border-radius: 0;
+    border: black 1px solid;
+    background-color: black;
+    color: white;
+    width: 200px;
+    margin: auto;
+ }
