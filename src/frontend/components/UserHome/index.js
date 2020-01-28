@@ -2,7 +2,9 @@ import React from 'react'
 import './UserHome.css'
 import { Link } from 'react-router-dom';
 
-function UserHome() {
+
+function UserHome(props) {
+  console.log('userhome', props);
   // const [user] = useState([])
 
   // useEffect(() => {
@@ -24,10 +26,6 @@ function UserHome() {
     <>
     {/* // map here, 
     // another return that will return this div
-    // movie.title
-
-------
-- do i have the click leading to the right spot.. "/collection-details"
    */}
 
     <div className="col-md-6">
@@ -42,15 +40,13 @@ function UserHome() {
                 <h4 className="card-text">
                     *Collection Description*
                 </h4>
-
+                {/* <Link to={`/delete-collection/${props.location.userDetails.collections._id}`} className="btn btn-dark btn-md mb-5">
+                  Delete A Collection
+                </Link> */}
             </Link> 
         </div>
     </div>
-                <Link to= '/delete-collection' className="btn btn-dark btn-md mb-5">
-                  Delete A Collection
-                </Link>
 
-               
 
 {/*     TO INCORPORATE:
             <div className="UserHome">
@@ -68,4 +64,3 @@ function UserHome() {
 }
 
 export default UserHome
-
