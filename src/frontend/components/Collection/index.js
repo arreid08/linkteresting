@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Collection.css'
 
 function Collection() {
+
+    const [links, setLinks] = useState([])
+  
+    useEffect(() => {
+        fetchAllLinks()
+    }, [])
+  
+    const fetchAllLinks = () => {
+        fetch('list-links.herokuapp.com/api/link')
+            .then(res => res.json())
+            .then(res => {
+                setLinks(res)
+            }, [])
+            .catch((error) => {
+                console.log("error", error)
+            })
+    }
+
   return (
     <div>
         <h4>Collection Name Here</h4>
         <nav className="btn-group btn-group-lg">
-            <Link to="/add-link">
+            <Link to={{
+                    pathname: '/add-link',
+                    links: links,
+                    fetchAllLinks: {fetchAllLinks}
+                    }}>
                 <button>New Link</button>
             </Link>
             <Link to="/user-home">

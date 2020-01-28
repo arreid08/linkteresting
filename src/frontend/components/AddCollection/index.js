@@ -28,7 +28,7 @@ function AddCollection(props) {
       description: description
     }
 
-    fetch('http://localhost:3000/', {
+    fetch('http://list-links.herokuapp.com/api/collection', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

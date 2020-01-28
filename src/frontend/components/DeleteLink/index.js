@@ -7,7 +7,7 @@ function DeleteLink(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
     
-        fetch(`http://localhost:3000`, {
+        fetch(`http://list-links.herokuapp.com/api/link`, {
           method: 'DELETE',
           headers: {
               'Content-Type': 'application/json'

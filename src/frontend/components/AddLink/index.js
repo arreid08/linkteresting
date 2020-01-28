@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AddLink.css'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 function AddLink(props) {
 
@@ -29,7 +29,7 @@ function AddLink(props) {
       // tag: tag
     }
 
-    fetch('http://localhost:3000/', {
+    fetch('http://list-links.herokuapp.com/api/link', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,8 @@ function AddLink(props) {
       props.fetchAllLinks()
       return(
         // redirect user to the list of all links
-        props.history.push('/collection_details')
+        // props.history.push('/collection_details')
+        <Redirect push to='/collection_details' />
       )
     })
   }
