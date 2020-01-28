@@ -50,7 +50,7 @@ function AddLink(props) {
 
   return (
     <>
-      <h1>Add a new link</h1>
+      <h4>Add a new link</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
