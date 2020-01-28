@@ -7,7 +7,8 @@ import UserHome from './frontend/components/UserHome'
 // import Edit from './frontend/components/Edit'
 import AddCollection from './frontend/components/AddCollection'
 import AddLink from './frontend/components/AddLink'
-// import Delete from './frontend/components/Delete'
+import DeleteCollection from './frontend/components/DeleteCollection'
+import DeleteLink from './frontend/components/DeleteLink'
 import Collection from './frontend/components/Collection'
 
 function App() {
@@ -31,6 +32,12 @@ function App() {
           </Route>
           <Route path="/collection-details">
             <Collection />
+          </Route>
+          <Route path="/delete-collection">
+            <DeleteCollection />
+          </Route>
+          <Route path="/delete-link">
+            <DeleteLink />
           </Route>
         </Switch>
       </main>

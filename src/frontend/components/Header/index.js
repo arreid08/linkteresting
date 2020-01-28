@@ -5,7 +5,7 @@ import './Header.css'
 
 function Header() {
   return (
-    <header className="Header">
+    <header className="jumbotron text-center">
       <Link to='/' className='link'>
           <h1>Linkteresting</h1>
       </Link>

@@ -28,7 +28,7 @@ function AddCollection(props) {
       description: description
     }
 
-    fetch('http://localhost:3000/', {
+    fetch('http://list-links.herokuapp.com/api/collection', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ function AddCollection(props) {
 
   return (
     <>
-      <h1>Add a new collection</h1>
+      <h4>Add a new collection</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
