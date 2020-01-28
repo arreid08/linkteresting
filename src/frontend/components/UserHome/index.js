@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react' 
 import './UserHome.css'
 import { Link } from 'react-router-dom';
 
 
 function UserHome(props) {
   console.log('userhome', props);
-  // const [user] = useState([])
+  // const [user, setUser] = useState([])
 
-  // useEffect(() => {
-  //   fetchUserInfo()
-  // }, [])
+  //  if (props.location.userDetails) {
+  //     useEffect(() => {
+  //       setUser (props.location.userDetails)
+  //     }, [])
+  //  }
+ 
+
+  // const validate = () => {
+  //   return props.location.userDetails ? setUser = props.location.userDetails : null
+  // }
 
   // const fetchUserInfo = () => {
   //   fetch('http://localhost:3000/collection')
@@ -21,6 +28,9 @@ function UserHome(props) {
   //       console.log("error", error)
   //     })
   // }
+
+
+
 
   return (
     <>
@@ -40,9 +50,12 @@ function UserHome(props) {
                 <h4 className="card-text">
                     *Collection Description*
                 </h4>
-                {/* <Link to={`/delete-collection/${props.location.userDetails.collections._id}`} className="btn btn-dark btn-md mb-5">
+                <Link to={{
+                  pathname: `/delete-collection/${props.location.userDetails.collections[0]}`,
+                  collectionId: props.location.userDetails.collections[0] }} 
+                  className="btn btn-dark btn-md mb-5">
                   Delete A Collection
-                </Link> */}
+                </Link>
             </Link> 
         </div>
     </div>
