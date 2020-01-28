@@ -50,22 +50,22 @@ function UserHome() {
                   Delete A Collection
                 </Link>
 
-{/*     AMY:
+               
+
+{/*     TO INCORPORATE:
             <div className="UserHome">
                   {props.collection.map(collection => {
                 return(
                   <div className="collection">
-                    <div className="title">{props.collection.title}</div>
-                    <div className="description">{props.collection.description}</div>
+                    <div className="title">{props.location.userDetails.collections}</div>
+                    <div className="description">{props.location.userDetails.collections}</div>
                </div>
                 )
                 })}
             </div> */}
-
     </>
 )
 }
 
-
-
 export default UserHome
+
