@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AddLink.css'
-import '.'
+import { Link } from 'react-router-dom'
 
 function AddLink(props) {
 
@@ -48,14 +48,6 @@ function AddLink(props) {
     })
   }
 
-  const handleCancel = (e) => {
-    console.log("cancel")
-    e.preventDefault()
-    return(
-        props.history.push('/collection-detail')
-    )
-  }
-
   return (
     <>
       <h1>Add a new link</h1>
@@ -74,13 +66,14 @@ function AddLink(props) {
         <br/> */}
         <input className="button" type="submit" value="Submit" />
       </form>
-      <button
-            className="button" 
-            type="submit" 
-            value="Cancel"
-            onClick={handleCancel}
-        >Cancel
-      </button>
+      <Link to='/collection-details'>
+        <button
+          className="button" 
+          type="submit" 
+          value="Cancel"
+          >Cancel
+        </button>
+      </Link>
     </>
   )
 }

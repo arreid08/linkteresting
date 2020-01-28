@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AddCollection.css'
-import '.'
+import { Link } from 'react-router-dom'
 
 function AddCollection(props) {
 
@@ -57,8 +57,15 @@ function AddCollection(props) {
         </label>
         <br/>
         <input className="button" type="submit" value="Submit" />
-        <input className="button" type="submit" value="Cancel" />
       </form>
+      <Link to='/user-home'>
+        <button
+          className="button" 
+          type="submit" 
+          value="Cancel"
+          >Cancel
+        </button>
+      </Link>
     </>
   )
 }
