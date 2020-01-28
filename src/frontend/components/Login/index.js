@@ -19,7 +19,7 @@ function Login() {
         e.preventDefault()
         return(
             // send user to the user home page
-            <Redirect to='/userhome' />
+            <Redirect to='/user-home' />
         )
     }
 
