@@ -4,7 +4,7 @@ import './UserHome.css'
 import { Link } from 'react-router-dom';
 
 function UserHome() {
-  const { user } = props;
+  // const { user } = props;
   // const [user, setUser] = useState([])
 
   // useEffect(() => {
@@ -24,6 +24,7 @@ function UserHome() {
 
   return (
     <>
+    
     <div className="col-md-6">
         <div className="card mb-4 shadow-sm">
             <div className="card-body">
@@ -34,14 +35,19 @@ function UserHome() {
                 <p className="card-text">
                     Users
                 </p>
-                <Link to= {`collections// ${}`} className="btn btn-secondary btn-xs btn-block">
+                <Link to= '/collection' className="btn btn-secondary btn-xs btn-block">
                     Collection
-                </Link>
+                </Link>   
             </div> 
         </div>
     </div>
+                <Link to= '/delete-collection' className="btn btn-secondary btn-xs btn-block">
+                  Delete A Collection
+                </Link>
     </>
 )
 }
+
+
 
 export default UserHome
