@@ -15,9 +15,11 @@ function Login() {
     //     setYear(e.target.value)
     // }
 
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        return(
+        return (
             // send user to the user home page
             <Redirect to='/user-home' />
         )
@@ -29,10 +31,10 @@ function Login() {
             <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
                 <div className="form-group">
                     <label className="label">
-                    Username: <input className="form-control" type="text" onChange={handleChangeUser} />
+                        Username: <input className="form-control" type="text" onChange={handleChangeUser} />
                     </label>
                 </div>
-                <br/>
+                <br />
                 {/* <label className="label">
                 Password: <input className="text-box" type="text" onChange={handleChangePassword} />
                 </label>
