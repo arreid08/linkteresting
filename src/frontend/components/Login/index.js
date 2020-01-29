@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+
 import './Login.css'
-// import { getBsProps } from 'react-bootstrap/lib/utils/bootstrapUtils'
+
 
 function Login(props) {
-    console.log("login props", props.handleLogin)
 
     const [user, setUser] = useState([])
-    const [userDetails, setUserDetails] = useState([])
+
 
     const handleChangeUser = (e) => {
         setUser(e.target.value)
     }
 
-    console.log("login", userDetails)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,10 +31,7 @@ function Login(props) {
                 <br />
                 <input className="button" type="submit" value="login" />
             </form>
-            {userDetails.username ? <Redirect push to={{
-                pathname: '/user-home',
-                userDetails: userDetails
-            }} /> : ""}
+
         </div>
     )
 }
