@@ -10,10 +10,12 @@ function Collection(props) {
     const [collection, setCollection] = useState([])
 
     useEffect(() => {
-        if (props.location.key) {
-            let i = props.location.key
-            let coll = props.getDetails()
-            setCollection(coll.collection[i])
+        if (props.location) {
+            if (props.location.key) {
+                let i = props.location.key
+                let coll = props.getDetails()
+                setCollection(coll.collection[i])
+            }
         }
         props.getLinkList("5e31c729a725b400041655bb")
             .then(res => {
