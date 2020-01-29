@@ -37,7 +37,6 @@ class UserHome extends Component {
       console.log("hello from component did update")
       let newState = this.props.getDetails()
       this.setState({ ...newState })
-
     }
   }
 
@@ -74,12 +73,12 @@ class UserHome extends Component {
         {/* // map here, 
     // another return that will return this div
    */}
-        {this.renderPage()}
+
         <div className="col-md-6">
 
           <div className="card mb-4 shadow-sm">
 
-
+            {this.renderPage()}
 
           </div>
         </div>
