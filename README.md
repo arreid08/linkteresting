@@ -20,6 +20,13 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 - [UserHome (Established User) Page](https://docs.google.com/drawings/d/1vibjhKRvmdFeZTMEsHVE0dYaV2uQqtv1YufVO-n02wA/edit)
 - [Collections Page](https://drive.google.com/open?id=1eV4Ex961YCHtG3mqlprDmJPN-UFwUOauylE2q3IeAgw)
 
+<!-- original -->
+## Designs: 
+![Login](https://i.imgur.com/UNz2NOi.jpg?1)
+![UserHome](https://i.imgur.com/TPLvOgZ.jpg?1)
+![CollectionDetails](https://i.imgur.com/oTOdkJ1.jpg?1)
+![AddLink](https://i.imgur.com/eY6SMxE.jpg?1)
+![AddCollection](https://i.imgur.com/kfhjsG2.png?1)
 
 ## MVL/ Post-MVP
 
