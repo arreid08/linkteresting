@@ -1,67 +1,95 @@
-import React, { useState, useEffect } from 'react' 
+import React, { Component } from 'react'
 import './UserHome.css'
 import { Link } from 'react-router-dom';
 
 
-function UserHome(props) {
-  console.log('userhome', props);
-  // const [user, setUser] = useState([])
+class UserHome extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: {},
+      collections: [],
+    }
+  }
 
-  //  if (props.location.userDetails) {
-  //     useEffect(() => {
-  //       setUser (props.location.userDetails)
-  //     }, [])
-  //  }
- 
+  fetchCollection = (id) => {
+    fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log("fetching collections", res)
+        this.setState({
+          collections: this.state.collections.concat(res)
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
-  // const validate = () => {
-  //   return props.location.userDetails ? setUser = props.location.userDetails : null
-  // }
+  componentDidMount() {
+    if (this.props.location.userDetails) {
+      this.setState({
+        user: this.props.location.userDetails
+      })
 
-  // const fetchUserInfo = () => {
-  //   fetch('http://localhost:3000/collection')
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       setUser(res)
-  //     }, [])
-  //     .catch((error) => {
-  //       console.log("error", error)
-  //     })
-  // }
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) {
+      console.log("hello from component did update")
+      this.state.user.collections.forEach(col => {
+        console.log("Should be fetching")
+        this.fetchCollection(col)
+      })
+    }
+  }
+
+  renderPage = () => {
+    if (this.state.collections.length > 0) {
+      console.log(this.state.collections)
+      return (
+        <>
+          {this.state.collections.map(col => (
+
+            <Link to="/collection-details" className="card-body" >
+              <h2>
+                {col.title}
+              </h2>
+              <h5>  </h5>
+              <h4 className="card-text">
+                {col.description}
+              </h4>
+              <Link to={`/delete-collection/${col._id}`} className="btn btn-dark btn-md mb-5">
+                Delete A Collection
+                </Link>
+            </Link>
+          ))}
+        </>
+      )
+
+    } else return (<h2> Loading...</h2 >)
+  }
 
 
-
-
-  return (
-    <>
-    {/* // map here, 
+  render() {
+    return (
+      <>
+        {/* // map here, 
     // another return that will return this div
    */}
+        {this.renderPage()}
+        <div className="col-md-6">
 
-    <div className="col-md-6">
+          <div className="card mb-4 shadow-sm">
 
-        <div className="card mb-4 shadow-sm">
 
-        <Link to= '/collection-details' className="card-body">
-                <h2> 
-                    *Collection Title*
-                </h2>
-                <h5>  </h5>
-                <h4 className="card-text">
-                    *Collection Description*
-                </h4>
-                <Link to={{
-                  pathname: `/delete-collection/${props.location.userDetails.collections[0]}`,
-                  collectionId: props.location.userDetails.collections[0] }} 
-                  className="btn btn-dark btn-md mb-5">
-                  Delete A Collection
-                </Link>
-            </Link> 
+
+          </div>
         </div>
-    </div>
 
 
-{/*     TO INCORPORATE:
+        {/*     TO INCORPORATE:
             <div className="UserHome">
                   {props.collection.map(collection => {
                 return(
@@ -72,8 +100,21 @@ function UserHome(props) {
                 )
                 })}
             </div> */}
-    </>
-)
+      </>
+    )
+  }
 }
-
 export default UserHome
+
+// {/* <Link to='/collection-details' className="card-body">
+          //   <h2>
+          //     {col.title}
+          //   </h2>
+          //   <h5>  </h5>
+          //   <h4 className="card-text">
+          //     {col.description}
+          //   </h4>
+          //   <Link to={`/delete-collection/${col._id}`} className="btn btn-dark btn-md mb-5">
+          //     Delete A Collection
+          // </Link>
+          // </Link> */}
