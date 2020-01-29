@@ -39,7 +39,6 @@ class App extends Component {
       // }
       // resolve(outArr)
     })
-
   }
 
   getUser = (name) => {
@@ -53,7 +52,6 @@ class App extends Component {
           reject(error)
         })
     })
-
   }
 
   handleLogin = (id) => {
@@ -95,9 +93,9 @@ class App extends Component {
             <Route path="/" render={props => <Login handleLogin={this.handleLogin} />} exact />
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} />} />
             <Route path="/add-collection" component={AddCollection} />
-            <Route path="/add-link" component={AddLink} />
-            <Route path="/collection-details" component={Collection} />
             <Route path="/delete-collection/:collectionId" component={DeleteCollection} />
+            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} />} />
+            <Route path="/add-link" component={AddLink} />
             <Route path="/delete-link/:linkId" component={DeleteLink} />
           </Switch>
           {this.state.gotUser ? <Redirect push to="/user-home" /> : null}

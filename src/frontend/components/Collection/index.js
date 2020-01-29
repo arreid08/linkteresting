@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 import './Collection.css'
 
-function Collection() {
+function Collection(props) {
 
+    console.log("collection props",props)
     const [links, setLinks] = useState([])
   
     useEffect(() => {
@@ -22,7 +23,7 @@ function Collection() {
             })
     }
 
-    console.log(links)
+    console.log("links", links)
 
     return (
         <div>
@@ -51,6 +52,7 @@ function Collection() {
                                     <span className="caret"></span>
                                 </button>
                                 <ul className="dropdown-menu" role="menu">
+                                    <li>Edit</li>
                                     <li><Link to="/edit-link">Edit</Link></li>
                                     <li><Link to="/delete-link">Delete</Link></li>
                                 </ul>

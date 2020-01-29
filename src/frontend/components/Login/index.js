@@ -5,7 +5,7 @@ import './Login.css'
 // import { getBsProps } from 'react-bootstrap/lib/utils/bootstrapUtils'
 
 function Login(props) {
-    // console.log(props)
+    console.log("login props", props)
 
     const [user, setUser] = useState([])
     const [userDetails, setUserDetails] = useState([])
@@ -13,20 +13,6 @@ function Login(props) {
     const handleChangeUser = (e) => {
         setUser(e.target.value)
     }
-
-    // const getUser = (username) => {
-    //     fetch(`http://list-links.herokuapp.com/api/user/name/${username}`)
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             console.log(res)
-    //             setUserDetails(res)
-    //         }, [])
-    //         .catch((error) => {
-    //             console.log("error", error)
-    //         })
-    // }
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
