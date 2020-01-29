@@ -1,52 +1,84 @@
-import React from 'react'
 import React, { useState, useEffect } from 'react' 
 import './Edit.css'
+import { Link, Redirect } from 'react-router-dom'
 
 // reference AddLink 
 function Edit(props) {
-  const [collection, editCollection] = useState([])
+
+  const [title, setTitle] = useState([])
+  const [link, setLink] = useState([])
+  // const [tag, setTag] = useState([])
+
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const handleChangeLink = (e) => {
+    setLink(e.target.value)
+  }
+
+  // const handleChangeTag = (e) => {
+  //   setTag(e.target.value)
+  // }
 
   const handleSubmit = (e) => {
-      e.preventDefault()
-  
-      fetch(`http://list-links.herokuapp.com/api/collection/${props.collectionId}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-      })
-      .then((res) => res.json())
-      .then((res) => {
-          editCollection(res)
-          console.log('res', res)
-      }, [])
-      .catch((error) => {
-          console.log("error", error)
-      })
-}
+    e.preventDefault()
+
+    const data = {
+      title: title,
+      link: link
+      // tag: tag
+    }
+
+    fetch('http://list-links.herokuapp.com/api/link', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then((res) => res.json())
+    .then(() => {
+      // update the state with all links so that it
+      // includes the newly added link
+      props.fetchAllLinks()
+      return(
+        // redirect user to the list of all links
+        // props.history.push('/collection_details')
+        <Redirect push to='/collection_details' />
+      )
+    })
+  }
 
   return (
-    <div className='Edit'>
-        <p>Edit Collection</p>
-        <div className=".btn-group-justified">
-            <button 
-                className="button" 
-                type="submit" 
-                value="Submit"
-                onClick={handleSubmit}
-            >Submit
-            </button>
-            <Link to='/user-home'>
-                <button
-                    className="button" 
-                    type="submit" 
-                    value="Cancel"
-                    >Cancel
-                </button>
-            </Link>
-        </div>
-    </div>
-)
+    <>
+    {/* what exactly is our header here??  */}
+      <h4>Edit</h4>
+      <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
+        <label className="label">
+          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+        </label>
+        <br/>
+        <label className="label">
+          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
+        </label>
+        <br/>
+        {/* <label className="label">
+          Tag: <input className="text-box" type="text" onChange={handleChangeTag} />
+        </label>
+        <br/> */}
+        <input className="button" type="submit" value="Submit" />
+      </form>
+      <Link to='/collection-details'>
+        <button
+          className="button" 
+          type="submit" 
+          value="Cancel"
+          >Cancel
+        </button>
+      </Link>
+    </>
+  )
 }
 
 export default Edit
