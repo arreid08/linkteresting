@@ -5,13 +5,19 @@ import './Collection.css'
 
 function Collection(props) {
 
-    console.log("collection props",props)
+    console.log("collection props", props)
     const [links, setLinks] = useState([])
-  
+
+
     useEffect(() => {
-        fetchAllLinks()
+        let newData = props.getDetails()
+        setLinks(newData.collections)
+        console.log("Links ", links)
+        // fetchAllLinks()
     }, [])
-  
+
+    console.log("this is get details ", props.getDetails())
+
     const fetchAllLinks = () => {
         fetch('http://list-links.herokuapp.com/api/link')
             .then(res => res.json())
@@ -29,11 +35,11 @@ function Collection(props) {
         <div>
             <h4>Collection Name Here</h4>
             <nav className="btn-group btn-group-justified">
-                <Link 
+                <Link
                     to={{
                         pathname: '/add-link',
                         links: links,
-                        fetchAllLinks: {fetchAllLinks}
+                        fetchAllLinks: { fetchAllLinks }
                     }}
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>
