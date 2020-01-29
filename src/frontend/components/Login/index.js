@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-
 import './Login.css'
 // import { getBsProps } from 'react-bootstrap/lib/utils/bootstrapUtils'
 
 function Login(props) {
-    // console.log(props)
+    console.log("login props", props.handleLogin)
 
     const [user, setUser] = useState([])
     const [userDetails, setUserDetails] = useState([])
@@ -14,19 +13,7 @@ function Login(props) {
         setUser(e.target.value)
     }
 
-    // const getUser = (username) => {
-    //     fetch(`http://list-links.herokuapp.com/api/user/name/${username}`)
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             console.log(res)
-    //             setUserDetails(res)
-    //         }, [])
-    //         .catch((error) => {
-    //             console.log("error", error)
-    //         })
-    // }
-
-
+    console.log("login", userDetails)
 
     const handleSubmit = (e) => {
         e.preventDefault()
