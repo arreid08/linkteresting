@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react' 
 import './DeleteCollection.css'
 import { Link, Redirect } from 'react-router-dom'
 
 function DeleteCollection(props) {
+    const [collection, setCollection] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
     
-        fetch(`http://list-links.herokuapp.com/api/collection`, {
+        fetch(`http://list-links.herokuapp.com/api/collection/${props.collectionId}`, {
           method: 'DELETE',
           headers: {
               'Content-Type': 'application/json'
           }
         })
         .then((res) => res.json())
-        .then(() => {
-          props.fetchAllCollections()
-          return(
-            <Redirect push to='/user-home' />
-          )
+        .then((res) => {
+            setCollection(res)
+            console.log('res', res)
+        }, [])
+        .catch((error) => {
+            console.log("error", error)
         })
-      }
+}
+
+        //   return(
+        //     <Redirect push to='/user-home' />
+        //   )
     
     return (
         <div className='Delete'>

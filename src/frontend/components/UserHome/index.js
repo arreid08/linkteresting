@@ -1,47 +1,58 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './UserHome.css'
 import { Link } from 'react-router-dom';
 
 
-function UserHome(props) {
-  console.log('userhome', props);
-  //const [user] = useState([])
+class UserHome extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: {},
+      collections: [],
+    }
+  }
 
-
-  const fetchCollection = (id) => {
-    fetch(`http://localhost:3000/collection/${id}`)
+  fetchCollection = (id) => {
+    fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
       .then(res => res.json())
       .then(res => {
-        return (res)
-      }, [])
+        console.log("fetching collections", res)
+        this.setState({
+          collections: this.state.collections.concat(res)
+        })
+      })
       .catch((error) => {
-        console.log("error", error)
+        console.log(error)
       })
   }
 
-  const collections = []
+  componentDidMount() {
+    if (this.props.location.userDetails) {
+      this.setState({
+        user: this.props.location.userDetails
+      })
 
-  props.props.location.userDetails.collections.forEach(col => {
-    fetchCollection(col).then(col => {
-      collections.push(col)
-    })
-  })
+    }
+  }
 
-  return (
-    <>
-      {/* // map here, 
-    // another return that will return this div
-   */}
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) {
+      console.log("hello from component did update")
+      this.state.user.collections.forEach(col => {
+        console.log("Should be fetching")
+        this.fetchCollection(col)
+      })
+    }
+  }
 
-      <div className="col-md-6">
+  renderPage = () => {
+    if (this.state.collections.length > 0) {
+      console.log(this.state.collections)
+      return (
+        <>
+          {this.state.collections.map(col => (
 
-        <div className="card mb-4 shadow-sm">
-          {if (collections.length > 0) {
-
-          }}
-          {collections.map(col => {
-
-            <Link to='/collection-details' className="card-body">
+            <Link to="/collection-details" className="card-body" >
               <h2>
                 {col.title}
               </h2>
@@ -53,24 +64,32 @@ function UserHome(props) {
                 Delete A Collection
                 </Link>
             </Link>
-          })}
-          <Link to='/collection-details' className="card-body">
-            <h2>
-              {props.location.userDetails.title}
-            </h2>
-            <h5>  </h5>
-            <h4 className="card-text">
-              *Collection Description*
-                </h4>
-            <Link to={`/delete-collection/${props.location.userDetails.collections._id}`} className="btn btn-dark btn-md mb-5">
-              Delete A Collection
-                </Link>
-          </Link>
+          ))}
+        </>
+      )
+
+    } else return (<h2> Loading...</h2 >)
+  }
+
+
+  render() {
+    return (
+      <>
+        {/* // map here, 
+    // another return that will return this div
+   */}
+        {this.renderPage()}
+        <div className="col-md-6">
+
+          <div className="card mb-4 shadow-sm">
+
+
+
+          </div>
         </div>
-      </div>
 
 
-      {/*     TO INCORPORATE:
+        {/*     TO INCORPORATE:
             <div className="UserHome">
                   {props.collection.map(collection => {
                 return(
@@ -81,8 +100,21 @@ function UserHome(props) {
                 )
                 })}
             </div> */}
-    </>
-  )
+      </>
+    )
+  }
 }
-
 export default UserHome
+
+// {/* <Link to='/collection-details' className="card-body">
+          //   <h2>
+          //     {col.title}
+          //   </h2>
+          //   <h5>  </h5>
+          //   <h4 className="card-text">
+          //     {col.description}
+          //   </h4>
+          //   <Link to={`/delete-collection/${col._id}`} className="btn btn-dark btn-md mb-5">
+          //     Delete A Collection
+          // </Link>
+          // </Link> */}
