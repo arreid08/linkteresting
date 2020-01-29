@@ -7,64 +7,59 @@ class UserHome extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: {},
-      collections: [],
+      user: this.props.user,
+      collections: this.props.userCollections,
     }
   }
 
-  fetchCollection = (id) => {
-    fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
-      .then(res => res.json())
-      .then(res => {
-        console.log("fetching collections", res)
-        this.setState({
-          collections: this.state.collections.concat(res)
-        })
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  // fetchCollection = (id) => {
+  //   fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log("fetching collections", res)
+  //       this.setState({
+  //         collections: this.state.collections.concat(res)
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
   componentDidMount() {
-    if (this.props.location.userDetails) {
-      this.setState({
-        user: this.props.location.userDetails
-      })
-
-    }
+    let newState = this.props.getDetails()
+    this.setState({ ...newState })
   }
 
+
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.user !== prevState.user) {
+    if (this.props.location) {
       console.log("hello from component did update")
-      this.state.user.collections.forEach(col => {
-        console.log("Should be fetching")
-        this.fetchCollection(col)
-      })
+      let newState = this.props.getDetails()
+      this.setState({ ...newState })
     }
   }
 
   renderPage = () => {
-    if (this.state.collections.length > 0) {
+    console.log(this.props)
+    if (this.state.collections) {
       console.log(this.state.collections)
       return (
         <>
-          {this.state.collections.map(col => (
 
-            <Link to="/collection-details" className="card-body" >
-              <h2>
-                {col.title}
-              </h2>
-              <h5>  </h5>
-              <h4 className="card-text">
-                {col.description}
-              </h4>
-              <Link to={`/delete-collection/${col._id}`} className="btn btn-dark btn-md mb-5">
-                Delete A Collection
+          <Link to="/collection-details" className="card-body" >
+            <h2>
+              {this.state.collections.title}
+            </h2>
+            <h5>  </h5>
+            <h4 className="card-text">
+              {this.state.collections.description}
+            </h4>
+            <Link to={`/delete-collection/${this.state.collections._id}`} className="btn btn-dark btn-md mb-5">
+              Delete A Collection
                 </Link>
-            </Link>
-          ))}
+          </Link>
+
         </>
       )
 
@@ -78,12 +73,12 @@ class UserHome extends Component {
         {/* // map here, 
     // another return that will return this div
    */}
-        {this.renderPage()}
+
         <div className="col-md-6">
 
           <div className="card mb-4 shadow-sm">
 
-
+            {this.renderPage()}
 
           </div>
         </div>
