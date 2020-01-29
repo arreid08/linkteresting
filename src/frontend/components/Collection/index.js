@@ -10,7 +10,7 @@ function Collection(props) {
     const [collection, setCollection] = useState([])
 
     useEffect(() => {
-        if (props.location) {
+        if (props.location.key) {
             let i = props.location.key
             let coll = props.getDetails()
             setCollection(coll.collection[i])
