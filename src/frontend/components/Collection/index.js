@@ -7,13 +7,20 @@ function Collection(props) {
 
     console.log("collection props", props)
     const [links, setLinks] = useState([])
-
+    const [collection, setCollection] = useState([])
 
     useEffect(() => {
+        if (props.location) {
+            if (props.location.key) {
+                let i = props.location.key
+                let coll = props.getDetails()
+                setCollection(coll.collection[i])
+            }
+        }
         props.getLinkList("5e31c729a725b400041655bb")
             .then(res => {
                 setLinks(res)
-                console.log("Links ", links)
+                console.log("Links ", res)
             })
 
         // fetchAllLinks()
@@ -21,16 +28,16 @@ function Collection(props) {
 
     //console.log("this is get details ", props.getDetails())
 
-    const fetchAllLinks = () => {
-        fetch('http://list-links.herokuapp.com/api/link')
-            .then(res => res.json())
-            .then(res => {
-                setLinks(res)
-            }, [])
-            .catch((error) => {
-                console.log("error", error)
-            })
-    }
+    // const fetchAllLinks = () => {
+    //     fetch('http://list-links.herokuapp.com/api/link')
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             setLinks(res)
+    //         }, [])
+    //         .catch((error) => {
+    //             console.log("error", error)
+    //         })
+    // }
 
     console.log("links", links)
 
@@ -42,7 +49,7 @@ function Collection(props) {
                     to={{
                         pathname: '/add-link',
                         links: links,
-                        fetchAllLinks: { fetchAllLinks }
+                        //fetchAllLinks: { fetchAllLinks }
                     }}
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>
