@@ -6,7 +6,6 @@ function AddLink(props) {
 
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
-  // const [tag, setTag] = useState([])
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
@@ -16,17 +15,12 @@ function AddLink(props) {
     setLink(e.target.value)
   }
 
-  // const handleChangeTag = (e) => {
-  //   setTag(e.target.value)
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const data = {
       title: title,
       link: link
-      // tag: tag
     }
 
     fetch('http://list-links.herokuapp.com/api/link', {
@@ -38,12 +32,8 @@ function AddLink(props) {
     })
     .then((res) => res.json())
     .then(() => {
-      // update the state with all links so that it
-      // includes the newly added link
       props.fetchAllLinks()
       return(
-        // redirect user to the list of all links
-        // props.history.push('/collection_details')
         <Redirect push to='/collection_details' />
       )
     })

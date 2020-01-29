@@ -27,29 +27,42 @@ function Collection() {
     return (
         <div>
             <h4>Collection Name Here</h4>
-            <nav className="btn-group btn-group-lg">
-                <Link to={{
+            <nav className="btn-group btn-group-justified">
+                <Link 
+                    to={{
                         pathname: '/add-link',
                         links: links,
                         fetchAllLinks: {fetchAllLinks}
-                        }}>
-                    <button>New Link</button>
+                    }}
+                    className="btn-group">
+                    <button className="btn btn-dark btn-md mb-5">New Link</button>
                 </Link>
-                <Link to="/user-home">
-                    <button>Go Back</button>
+                <Link to="/user-home" className="btn-group">
+                    <button className="btn btn-dark btn-md mb-5">Go Back</button>
                 </Link>
             </nav>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
-                        <li><a href="#">{links.title}</a></li>
+                        <div className="btn-group">
+                            <li><Link to={links.link}>{links.title}</Link></li>
+                            <div className="btn-group">
+                                <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <span className="caret"></span>
+                                </button>
+                                <ul className="dropdown-menu" role="menu">
+                                    <li><Link to="/edit-link">Edit</Link></li>
+                                    <li><Link to="/delete-link">Delete</Link></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-sm-4">
+                    {/* <div className="col-sm-4">
                         <li><a href="#">Links here..</a></li>
                     </div>
                     <div className="col-sm-4">
                         <li><a href="#">Links here..</a></li>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
