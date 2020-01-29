@@ -3,26 +3,26 @@ import './UserHome.css'
 import { Link } from 'react-router-dom';
 
 class UserHome extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            user: this.props.user,
-            collections: this.props.userCollections,
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: this.props.user,
+      collections: this.props.userCollections,
     }
+  }
 
-    componentDidMount() {
-        let newState = this.props.getDetails()
-        this.setState({ ...newState })
-    }
+  componentDidMount() {
+    let newState = this.props.getDetails()
+    this.setState({ ...newState })
+  }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.location) {
-            console.log("hello from component did update")
-         let newState = this.props.getDetails()
-            this.setState({ ...newState })
-        }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.location) {
+      console.log("hello from component did update")
+      let newState = this.props.getDetails()
+      this.setState({ ...newState })
     }
+  }
 
     renderPage = () => {
         console.log(this.props)

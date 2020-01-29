@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className="jumbotron text-center">
       <Link to='/' className='link'>
-          <h1>Linkteresting</h1>
+          <h1>|Linkteresting|</h1>
       </Link>
     </header>
   )

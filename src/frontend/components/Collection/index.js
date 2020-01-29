@@ -7,29 +7,40 @@ function Collection(props) {
 
     console.log("collection props", props)
     const [links, setLinks] = useState([])
-
+    const [collection, setCollection] = useState([])
 
     useEffect(() => {
-        let newData = props.getDetails()
-        setLinks(newData.collections)
-        console.log("Links ", links)
+        if (props.location) {
+            if (props.location.key) {
+                let i = props.location.key
+                let coll = props.getDetails()
+                setCollection(coll.collection[i])
+            }
+        }
+        props.getLinkList("5e31c729a725b400041655bb")
+            .then(res => {
+                setLinks(res)
+                console.log("Links ", res)
+            })
+
         // fetchAllLinks()
     }, [])
 
-    console.log("this is get details ", props.getDetails())
+    //console.log("this is get details ", props.getDetails())
 
-    const fetchAllLinks = () => {
-        fetch('http://list-links.herokuapp.com/api/link')
-            .then(res => res.json())
-            .then(res => {
-                setLinks(res)
-            }, [])
-            .catch((error) => {
-                console.log("error", error)
-            })
-    }
+    // const fetchAllLinks = () => {
+    //     fetch('http://list-links.herokuapp.com/api/link')
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             setLinks(res)
+    //         }, [])
+    //         .catch((error) => {
+    //             console.log("error", error)
+    //         })
+    // }
 
     console.log("links", links)
+    console.log("collection get details return", collection)
 
     return (
         <div>
@@ -39,7 +50,7 @@ function Collection(props) {
                     to={{
                         pathname: '/add-link',
                         links: links,
-                        fetchAllLinks: { fetchAllLinks }
+                        //fetchAllLinks: { fetchAllLinks }
                     }}
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>
