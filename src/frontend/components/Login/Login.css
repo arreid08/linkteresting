@@ -25,6 +25,11 @@ p {
     margin-top: 20px;
 }
 
+.form-control:focus,.form-control:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
 .button {
     border-radius: 0;
     background-color: black;
@@ -34,3 +39,13 @@ p {
     padding: 5px 18px;
 
 }
+
+/* .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ } */
+
+ /* .btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+  } */
