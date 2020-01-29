@@ -28,7 +28,7 @@ As a designer I want to save multiple links so I can review to get ideas, but no
 ![AddLink](https://i.imgur.com/eY6SMxE.jpg?1)
 ![AddCollection](https://i.imgur.com/kfhjsG2.png?1)
 
-## MVL/ Post-MVP
+## MVP/ Post-MVP
 
 ### MVP: 
 - Landing Page - Login with just your name.
