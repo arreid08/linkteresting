@@ -16,7 +16,6 @@ class UserHome extends Component {
         this.setState({ ...newState })
     }
 
-
     componentDidUpdate(prevProps, prevState) {
         if (this.props.location) {
             console.log("hello from component did update")
