@@ -1,0 +1,36 @@
+div {
+    font-family: montserrat;
+}
+
+p {
+    letter-spacing: 2px;
+    font-size: 13px;
+    text-align: center;
+    padding: 0px 20px;
+    line-height: 20px;
+}
+
+.label {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin: auto;
+    padding: 5%;
+}
+
+.form-control {
+    border-radius: 0;
+    border: black 2px solid;
+    width: 350px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.button {
+    border-radius: 0;
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 5px;
+    padding: 5px 18px;
+
+}

@@ -22,7 +22,7 @@ class App extends Component {
     }
   }
 
-  getCollections = (arr) => {
+  getCollections = () => {
     return new Promise((resolve, reject) => {
       let id = this.state.user._id
       fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
@@ -58,7 +58,7 @@ class App extends Component {
         })
       })
       .then(res => {
-        this.getCollections(this.state.user.collections)
+        this.getCollections()
           .then(res => {
             console.log("got collections ", res)
             this.setState({
@@ -70,6 +70,13 @@ class App extends Component {
       })
 
       .catch(error => { console.log(error) })
+  }
+
+  refreshCollections = () => {
+    this.getCollections()
+      .then(res => {
+        this.setState({ collecions: res })
+      })
   }
 
   getDetails = () => {
@@ -104,7 +111,13 @@ class App extends Component {
         })
         .catch(error => { reject(error) })
     })
+  }
 
+  refreshLinks = (id) => {
+    this.getLinks(id)
+      .then(res => {
+        this.setState({ links: res })
+      })
   }
 
   render() {
@@ -116,7 +129,7 @@ class App extends Component {
             <Route path="/" render={props => <Login handleLogin={this.handleLogin} />} exact />
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} />} />
             <Route path="/add-collection" component={AddCollection} />
-            <Route path="/delete-collection/:collectionId" component={DeleteCollection} />
+            <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} />} />
             <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} getLinkList={this.getLinkList} />} />
             <Route path="/add-link" component={AddLink} />
             <Route path="/delete-link/:linkId" component={DeleteLink} />

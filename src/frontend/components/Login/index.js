@@ -22,7 +22,7 @@ function Login(props) {
 
     return (
         <div>
-            <p>Linkteresting is a place to store all your bookmarks in categories so you never lose them.</p>
+            <p>L I N K T E R E S T I N G   is a place to store all your bookmarks in categories so you never lose them.</p>
             <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
                 <div className="form-group">
                     <label className="label">
@@ -30,7 +30,7 @@ function Login(props) {
                     </label>
                 </div>
                 <br />
-                <input className="button" type="submit" value="Log In" />
+                <input className="button" type="submit" value="login" />
             </form>
             {userDetails.username ? <Redirect push to={{
                 pathname: '/user-home',

@@ -1,3 +1,8 @@
+/* body {
+  background-position: bottom; 
+  background-repeat: no-repeat;
+}  */
+
 .App {
   text-align: center;
 }
@@ -6,3 +11,5 @@
   text-decoration: none;
   color: #78658C;
 }
+
+
