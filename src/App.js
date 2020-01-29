@@ -22,13 +22,10 @@ class App extends Component {
     }
   }
 
-  getCollections = (arr) => {
+  getCollections = () => {
     return new Promise((resolve, reject) => {
-      // let outArr = []
-      console.log("arr ", arr[0])
-      // for (let i = 0; i < arr.length; i++) {
-      let id = arr[0]
-      fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
+      let id = this.state.user._id
+      fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -36,8 +33,6 @@ class App extends Component {
         .catch((error) => {
           console.log(error)
         })
-      // }
-      // resolve(outArr)
     })
   }
 

@@ -27,22 +27,31 @@ class UserHome extends Component {
     renderPage = () => {
         console.log(this.props)
         if (this.state.collections) {
-            console.log(this.state.collections)
+            console.log("this is this.state.collections:", this.state.collections)
+            console.log("this is this.state.collections.description:", this.state.collections.values)
             return (
-                <>
-                    <Link to="/collection-details" className="card-body" >
+                <div className="card-body">
+                    <span>
+                   {this.state.collections.map(item => (
+                        <Link to="/collection-details" 
+                        >
+     {/* move the next line before > in 37 */}
+                            {/* className="card-body" */}
+                        <p>{item.parent}</p>
                         <h2>
-                        {this.state.collections.title}
+                        {item.title}
                         </h2>
-                        <h5>  </h5>
                         <h4 className="card-text">
-                        {this.state.collections.description}
+                        {item.description}
                         </h4>
-                        <Link to={`/delete-collection/${this.state.collections._id}`} className="btn btn-dark btn-md mb-5">
+                        <hr></hr>
+                        <Link to={`/delete-collection/${item._id}`} className="btn btn-dark btn-md mb-5">
                             Delete A Collection
                         </Link>
                     </Link>
-                </>
+                    ))}
+                    </span>
+                </div>    
         )} else return (<h2> Loading...</h2>)
     }
 
@@ -50,25 +59,11 @@ class UserHome extends Component {
   render() {
     return (
         <>
-            {/* // map here, 
-                // another return that will return this div
-            */}
             <div className="col-md-6">
                 <div className="card mb-4 shadow-sm">
                     {this.renderPage()}
                 </div>
             </div>
-        {/*     TO INCORPORATE:
-            <div className="UserHome">
-                  {props.collection.map(collection => {
-                return(
-                  <div className="collection">
-                    <div className="title">{props.location.userDetails.collections}</div>
-                    <div className="description">{props.location.userDetails.collections}</div>
-               </div>
-                )
-                })}
-            </div> */}
       </>
     )
   }
