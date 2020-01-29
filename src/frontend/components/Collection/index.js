@@ -10,13 +10,16 @@ function Collection(props) {
 
 
     useEffect(() => {
-        let newData = props.getDetails()
-        setLinks(newData.collections)
-        console.log("Links ", links)
+        props.getLinkList("5e31c729a725b400041655bb")
+            .then(res => {
+                setLinks(res)
+                console.log("Links ", links)
+            })
+
         // fetchAllLinks()
     }, [])
 
-    console.log("this is get details ", props.getDetails())
+    //console.log("this is get details ", props.getDetails())
 
     const fetchAllLinks = () => {
         fetch('http://list-links.herokuapp.com/api/link')

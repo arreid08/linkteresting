@@ -24,11 +24,8 @@ class App extends Component {
 
   getCollections = (arr) => {
     return new Promise((resolve, reject) => {
-      // let outArr = []
-      console.log("arr ", arr[0])
-      // for (let i = 0; i < arr.length; i++) {
-      let id = arr[0]
-      fetch(`http://list-links.herokuapp.com/api/collection/${id}`)
+      let id = this.state.user._id
+      fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -36,8 +33,6 @@ class App extends Component {
         .catch((error) => {
           console.log(error)
         })
-      // }
-      // resolve(outArr)
     })
   }
 
@@ -84,6 +79,34 @@ class App extends Component {
     }
   }
 
+  getLinks = (id) => {
+    return new Promise((resolve, reject) => {
+      fetch(`http://list-links.herokuapp.com/api/link/s/${id}`)
+        .then(res => res.json())
+        .then(res => {
+          resolve(res)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    })
+  }
+
+  getLinkList = (id) => {
+    return new Promise((resolve, reject) => {
+      this.getLinks(id)
+        .then(res => {
+          console.log("got links ", res)
+          this.setState({
+            links: res
+          })
+          resolve(res)
+        })
+        .catch(error => { reject(error) })
+    })
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -94,7 +117,7 @@ class App extends Component {
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} />} />
             <Route path="/add-collection" component={AddCollection} />
             <Route path="/delete-collection/:collectionId" component={DeleteCollection} />
-            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} />} />
+            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} getLinkList={this.getLinkList} />} />
             <Route path="/add-link" component={AddLink} />
             <Route path="/delete-link/:linkId" component={DeleteLink} />
           </Switch>
