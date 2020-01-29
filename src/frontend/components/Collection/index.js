@@ -40,6 +40,7 @@ function Collection(props) {
     // }
 
     console.log("links", links)
+    console.log("collection get details return", collection)
 
     return (
         <div>
