@@ -11,9 +11,8 @@
     margin-right: auto; */
     margin: auto;
     position: absolute;
-    display: block;
+    /* display: relative;   */
     width: 100%;
-    
 }
 
  /* .card-body {
