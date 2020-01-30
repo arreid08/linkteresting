@@ -56,10 +56,6 @@ class App extends Component {
     this.getUser(id)
       .then(res => {
         console.log("got user", res)
-        // this.setState({
-        //   user: res
-        // })
-        // .then(res => {
         let user = res
         this.getCollections(res._id)
           .then(res => {
@@ -71,7 +67,6 @@ class App extends Component {
             })
             console.log("state ", this.state)
           })
-        // })
       })
 
 
