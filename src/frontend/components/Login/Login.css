@@ -4,25 +4,30 @@ div {
 
 p {
     letter-spacing: 2px;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     padding: 0px 20px;
-    line-height: 20px;
+    line-height: 18px;
+    margin-bottom: 30px;
 }
 
 .label {
     text-transform: uppercase;
     letter-spacing: 8px;
     margin: auto;
-    padding: 5%;
 }
 
 .form-control {
     border-radius: 0;
-    border: black 2px solid;
+    border: black 1px solid;
     width: 350px;
+    height: 40px;
     margin: auto;
     margin-top: 25px;
+
+    text-align: center;
+    color: lightgrey;
+    font-size: 11px;
 }
 
 .form-control:focus,.form-control:active {
@@ -30,13 +35,17 @@ p {
     box-shadow: none;
  }
 
-.button {
+/* .butt {
+    margin-top: 0;
+} */
+
+.logbutt {
     border-radius: 0;
     background-color: black;
     color: white;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 5px;
-    padding: 5px 18px;
+    padding: 5px 30px;
     margin: auto;
     cursor: pointer;
 }
@@ -50,3 +59,21 @@ p {
     outline: none !important;
     box-shadow: none !important;
   } */
+
+
+ @media screen and (min-width: 415px) {
+    p {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .button {
+        font-size: 13px;
+        width: 100px;
+    }
+
+    .input {
+        font-size: 13px;
+        width: 100px;
+    }
+}
