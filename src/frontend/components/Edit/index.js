@@ -1,4 +1,4 @@
-import React, { useState } from 'react' 
+import React, { useState } from 'react'
 import './Edit.css'
 import { Link, Redirect } from 'react-router-dom'
 
@@ -22,43 +22,44 @@ function Edit(props) {
       title: title,
       link: link
     }
-
-    fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.linkId}`, {
+    console.log(props.state.location.linkId)
+    fetch(`https://www.list-links.herokuapp.com/api/link/${props.state.location.linkId}`, {
       method: 'PUT',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
+
       },
       body: JSON.stringify(data)
     })
-    .then((res) => {
-      props.refreshLinks(props.state.location.collectionId)
-          .then(() => {
-              setDone(true)
-          })
-    })
+      .then((res) => {
+        props.refreshLinks(props.state.collectionId)
+      })
+      .then(() => {
+        setDone(true)
+      })
   }
 
   return (
     <>
-    {/* what exactly is our header here??  */}
+      {/* what exactly is our header here??  */}
       <h4>Edit</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} defaultValue={props.state.location.link.title} />
         </label>
-        <br/>
+        <br />
         <label className="label">
           Link: <input className="text-box" type="text" onChange={handleChangeLink} defaultValue={props.state.location.link.link} />
         </label>
-        <br/>
+        <br />
         <input className="button" type="submit" value="Submit" />
       </form>
       <Link to='/collection-details'>
         <button
-          className="button" 
-          type="submit" 
+          className="button"
+          type="submit"
           value="Cancel"
-          >Cancel
+        >Cancel
         </button>
       </Link>
       {done ? <Redirect push to='/collection-details' /> : null}
