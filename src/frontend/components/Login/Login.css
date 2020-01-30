@@ -22,7 +22,7 @@ p {
     border: black 2px solid;
     width: 350px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .form-control:focus,.form-control:active {
@@ -37,7 +37,8 @@ p {
     font-size: 10px;
     letter-spacing: 5px;
     padding: 5px 18px;
-
+    margin: auto;
+    cursor: pointer;
 }
 
 /* .btn:focus,.btn:active {

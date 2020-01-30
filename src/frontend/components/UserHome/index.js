@@ -30,14 +30,18 @@ class UserHome extends Component {
       console.log("this is this.state.collections:", this.state.collections)
       console.log("this is this.state.collections.description:", this.state.collections.values)
       return (
-        <div className="card-body">
-          <span>
+        <>
+        <div className="col-md">
+          {/* <div className="card-body"> */}
+          <div className="card">
             {this.state.collections.map(item => (
+              
               <Link to="/collection-details"
               >
                 {/* move the next line before > in 37 */}
                 {/* className="card-body" */}
-                <p>{item.parent}</p>
+
+                <p className="uh">{item.parent}</p>
                 <h2>
                   {item.title}
                 </h2>
@@ -50,12 +54,15 @@ class UserHome extends Component {
                   id: item._id
                 }}
                   className="btn btn-dark btn-md mb-5">
-                  Delete A Collection
+                  delete collection
                         </Link>
               </Link>
+
             ))}
-          </span>
+          </div>
+          {/* </div> */}
         </div>
+        </>
       )
     } else return (<h2> Loading...</h2>)
   }
