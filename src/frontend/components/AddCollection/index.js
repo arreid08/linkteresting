@@ -6,8 +6,7 @@ function AddCollection(props) {
 
   const [title, setTitle] = useState([])
   const [description, setDescription] = useState([])
-  const [done, setDone] = useState([])
-  // const [tag, setTag] = useState([])
+  const [done, setDone] = useState(false)
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
@@ -17,10 +16,6 @@ function AddCollection(props) {
     setDescription(e.target.value)
   }
 
-  // const handleChangeTag = (e) => {
-  //   setTag(e.target.value)
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -29,26 +24,29 @@ function AddCollection(props) {
       description: description
     }
 
-    let id = props.state.userId
-
-    fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
+    fetch(`http://list-links.herokuapp.com/api/collection/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-      .then((res) => {
-        props.refreshCollections()
-      })
-      .then(() => {
-        setDone(true)
-      })
+    .then((res) => {
+      props.refreshLinks(props.state.collectionId)
+        .then(() => {
+          setDone(true)
+        })
+    })
   }
+
+  console.log("add coll props", props.user)
+  // console.log("add coll state", props.state)
+  // console.log("add coll location", props.state.location)
+  // console.log("add coll collectionId", props.state.location.collectionId)
 
   return (
     <>
-      <h4>Add a new collection</h4>
+      <h4>ADD COLLECTION</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
