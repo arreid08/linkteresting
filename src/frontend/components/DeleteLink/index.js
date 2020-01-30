@@ -7,16 +7,18 @@ function DeleteLink(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let id = props.state.match.params.collectionId
+        let id = props.state.match.params.linkId
         fetch(`http://list-links.herokuapp.com/api/link/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-            .then((res) => res.json())
+            .then((res) => {
+                props.refreshLinks(props.state.collectionId)
+            })
             .then(() => {
-                props.fetchAllCollections()
+                setDone(true)
             })
     }
 

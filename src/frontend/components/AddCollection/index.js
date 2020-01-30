@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import './AddCollection.css'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 function AddCollection(props) {
 
   const [title, setTitle] = useState([])
   const [description, setDescription] = useState([])
+  const [done, setDone] = useState([])
   // const [tag, setTag] = useState([])
 
   const handleChangeTitle = (e) => {
@@ -28,20 +29,21 @@ function AddCollection(props) {
       description: description
     }
 
-    fetch('http://list-links.herokuapp.com/api/collection', {
+    let id = props.state.userId
+
+    fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-    .then((res) => res.json())
-    .then(() => {
-      props.fetchAllCollections()
-      return(
-        props.history.push('/user-home')
-      )
-    })
+      .then((res) => {
+        props.refreshCollections()
+      })
+      .then(() => {
+        setDone(true)
+      })
   }
 
   return (
@@ -51,21 +53,22 @@ function AddCollection(props) {
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
         </label>
-        <br/>
+        <br />
         <label className="label">
           Description: <input className="text-box" type="text" onChange={handleChangeDescription} />
         </label>
-        <br/>
+        <br />
         <input className="button" type="submit" value="Submit" />
       </form>
       <Link to='/user-home'>
         <button
-          className="button" 
-          type="submit" 
+          className="button"
+          type="submit"
           value="Cancel"
-          >Cancel
+        >Cancel
         </button>
       </Link>
+      {done ? <Redirect push to='/user-home' /> : null}
     </>
   )
 }
