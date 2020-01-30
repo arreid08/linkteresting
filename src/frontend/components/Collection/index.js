@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './Collection.css'
 
+
 function Collection(props) {
 
     console.log("collection props", props)
@@ -44,12 +45,16 @@ function Collection(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
+                     <h6>Collection: {collection.description}</h6>
                         <div className="btn-group">
-                            <li><Link to={links.link}>{links.title}</Link></li>
-                            <div className="btn-group">
-                                <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span className="caret"></span>
-                                </button>
+                  
+                        {console.log("This is links",links)}
+                        {links.map((item) => (
+                            <div className="link-list">
+                            <a href={item.link} target="blank">{item.title}</a>
+                            </div>
+                            ))}
+
                                 <ul className="dropdown-menu" role="menu">
                                     <li>Edit</li>
                                     <li><Link to="/edit-link">Edit</Link></li>
@@ -58,15 +63,8 @@ function Collection(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="col-sm-4">
-                        <li><a href="#">Links here..</a></li>
-                    </div>
-                    <div className="col-sm-4">
-                        <li><a href="#">Links here..</a></li>
-                    </div> */}
                 </div>
             </div>
-        </div>
     )
 }
 

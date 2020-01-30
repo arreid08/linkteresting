@@ -21,7 +21,8 @@ function Login(props) {
 
     return (
         <div>
-            <p>L I N K T E R E S T I N G   is a place to store all your bookmarks in categories so you never lose them.</p>
+            {/* <p>L I N K T E R E S T I N G   is a place to store all your bookmarks in categories so you never lose them.</p> */}
+            <p>a place to store all of your bookmarks in collections so that you’ll never lose them -- at last</p>
             <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
                 <div className="form-group">
                     <label className="label">

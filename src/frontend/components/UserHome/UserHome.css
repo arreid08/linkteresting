@@ -2,16 +2,30 @@
      margin: 30px;
  }
 
- .card {
-     margin: auto;
- }
+.col-md {
+    border: solid red 1px;
+    background: none;
+}
 
- .card-body {
+ /* .card-body {
      text-decoration: none;
      color: black;
      padding: 30px;
-     border-radius: 0;
-     border: black 1px solid;
+     border: none;
+ } */
+
+.container {
+    border: none;
+    /* background: transparent; */
+    background-color: transparent !important;
+}
+
+ .card-body {
+     border: solid black 1px;
+     background: white;
+     margin: 20px;
+     padding: 0;
+     height: 130px;
  }
 
  .card-body:hover {
@@ -20,15 +34,39 @@
     font-weight: bold;
  }
 
-h2 {
-    padding-bottom: 20px;
+.title {
+    padding: 10px;    
+    margin: auto;
+    margin-top: 10px;
+
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.card-text {
+    margin: auto;
+    margin-top: 10px;
+
+    text-transform: lowercase;
+    font-size: 10px;
+    color: black;
+    letter-spacing: 1px;
 }
 
  .btn {
+    padding: 5px 18px;
+    /* margin: auto; */
+    cursor: pointer;
+    /* margin-top: 20px;
+    margin-bottom: 0; */
+    margin: 20px auto;
     border-radius: 0;
-    border: black 1px solid;
     background-color: black;
+
     color: white;
-    width: 200px;
-    margin: auto;
+    font-size: 8px;
+    letter-spacing: 5px;
+    text-transform: lowercase;
  }
