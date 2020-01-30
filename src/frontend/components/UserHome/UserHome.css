@@ -10,6 +10,7 @@
     /* margin-left: auto;
     margin-right: auto; */
     margin: auto;
+    /* position absolute is what's removing the background */
     position: absolute;
     /* display: relative;   */
     width: 100%;
