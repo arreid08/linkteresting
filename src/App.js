@@ -4,7 +4,7 @@ import './App.css'
 import Header from './frontend/components/Header'
 import Login from './frontend/components/Login'
 import UserHome from './frontend/components/UserHome'
-// import Edit from './frontend/components/Edit'
+import Edit from './frontend/components/Edit'
 import AddCollection from './frontend/components/AddCollection'
 import AddLink from './frontend/components/AddLink'
 import DeleteCollection from './frontend/components/DeleteCollection'
@@ -23,9 +23,10 @@ class App extends Component {
     }
   }
 
-  getCollections = () => {
+  getCollections = (id) => {
     return new Promise((resolve, reject) => {
-      let id = this.state.user._id
+      // let id = this.state.user._id
+      console.log("getCollections id ", id)
       fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
@@ -51,24 +52,28 @@ class App extends Component {
   }
 
   handleLogin = (id) => {
+    console.log("handle login id ", id)
     this.getUser(id)
       .then(res => {
         console.log("got user", res)
-        this.setState({
-          user: res
-        })
-      })
-      .then(res => {
-        this.getCollections()
+        // this.setState({
+        //   user: res
+        // })
+        // .then(res => {
+        let user = res
+        this.getCollections(res._id)
           .then(res => {
             console.log("got collections ", res)
             this.setState({
               collections: res,
-              gotUser: true
+              gotUser: true,
+              user: user
             })
             console.log("state ", this.state)
           })
+        // })
       })
+
 
       .catch(error => { console.log(error) })
   }
@@ -152,6 +157,7 @@ class App extends Component {
             <Route path="/collection-details" render={props => <Collection setActive={this.setActive} getActive={this.getActive} getLinkList={this.getLinkList} getActiveLinks={this.getActiveLinks} state={props} />} />
             <Route path="/delete-link/" render={props => <DeleteLink state={props} refreshLinks={this.refreshLinks} />} />
             <Route path="/add-link" render={props => <AddLink refreshLinks={this.refreshLinks} state={props} />} />
+            <Route path="/edit-link/" render={props => <Edit refreshLinks={this.refreshLinks} state={props} />} />
           </Switch>
           {this.state.gotUser ? <Redirect push to="/user-home" /> : null}
         </main>

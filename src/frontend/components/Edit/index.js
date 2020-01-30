@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react'
 import './Edit.css'
 import { Link, Redirect } from 'react-router-dom'
 
-// reference AddLink 
 function Edit(props) {
 
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
-  // const [tag, setTag] = useState([])
+  const [done, setDone] = useState(false)
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
@@ -17,38 +16,41 @@ function Edit(props) {
     setLink(e.target.value)
   }
 
-  // const handleChangeTag = (e) => {
-  //   setTag(e.target.value)
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const data = {
       title: title,
       link: link
-      // tag: tag
     }
 
-    fetch('http://list-links.herokuapp.com/api/link', {
+    fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-    .then((res) => res.json())
+    .then((res) => {
+      props.refreshLinks(props.state.collectionId)
+    })
     .then(() => {
-      // update the state with all links so that it
-      // includes the newly added link
-      props.fetchAllLinks()
-      return(
-        // redirect user to the list of all links
-        // props.history.push('/collection_details')
-        <Redirect push to='/collection_details' />
-      )
+      setDone(true)
     })
   }
+
+  const fetchLinkTitle = (id) => {
+    const foundT = props.links.find(d => d._id === id)
+    return foundT && foundT.title
+  }
+
+  const fetchLink = (id) => {
+    const foundL = props.links.find(d => d._id === id)
+    return foundL && foundL.link
+  }
+
+  console.log("edit title", title)
+  console.log("edit link", link)
 
   return (
     <>
@@ -56,17 +58,13 @@ function Edit(props) {
       <h4>Edit</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
-          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+          Title: <input className="text-box" type="text" onChange={handleChangeTitle} defaultValue={fetchLinkTitle(props.state.location.collectionId)} />
         </label>
         <br/>
         <label className="label">
-          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
+          Link: <input className="text-box" type="text" onChange={handleChangeLink} defaultValue={fetchLink(props.state.location.collectionId)} />
         </label>
         <br/>
-        {/* <label className="label">
-          Tag: <input className="text-box" type="text" onChange={handleChangeTag} />
-        </label>
-        <br/> */}
         <input className="button" type="submit" value="Submit" />
       </form>
       <Link to='/collection-details'>
@@ -77,6 +75,7 @@ function Edit(props) {
           >Cancel
         </button>
       </Link>
+      {done ? <Redirect push to='/collection-details' /> : null}
     </>
   )
 }

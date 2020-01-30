@@ -65,7 +65,8 @@ function Collection(props) {
                                     }}>Edit</Link>
                                     <Link to={{
                                         pathname: "/delete-link",
-                                        id: item._id
+                                        id: item._id,
+                                        collectionId: collection._id
                                     }}>Delete</Link>
                                 </div>
                             ))}

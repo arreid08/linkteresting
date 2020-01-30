@@ -4,9 +4,6 @@ import { Link, Redirect } from 'react-router-dom'
 
 function AddLink(props) {
 
-  console.log("add link", props.state)
-  console.log("add link coll", props.state.collection)
-  console.log("add state link", props.state.location.link)
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
   const [done, setDone] = useState(false)
