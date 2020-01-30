@@ -30,32 +30,30 @@ class UserHome extends Component {
       console.log("this is this.state.collections:", this.state.collections)
       console.log("this is this.state.collections.description:", this.state.collections.values)
       return (
-        <div className="card-body">
-          <span>
-            {this.state.collections.map((item,i) => (
-            <Link to={{
-              pathname: `/collection-details/`,
-              id: item._id,
-              collection: item}}>
-                {/* className="card-body" */}
-              <h2>
-                {item.title}
-              </h2>
-              <h4 className="card-text">
-                {item.description}
-              </h4> 
+        <>
+          {this.state.collections.map((item,i) => (
+            <div className="card-body" key={i}>
               <Link to={{
-                pathname: `/delete-collection/${item._id}`,
-                id: item._id}}
-                className="btn btn-dark btn-md mb-5">
-                Delete A Collection
-              </Link>
-              <hr></hr>
-              <br></br><br></br>
-              </Link>
-            ))}
-          </span>
-        </div>
+                pathname: `/collection-details/`,
+                id: item._id,
+                collection: item}}>
+                  {/* className="card-body" */}
+                <h2>
+                  {item.title}
+                </h2>
+                <h4 className="card-text">
+                  {item.description}
+                </h4>
+                </Link>
+                <Link to={{
+                  pathname: `/delete-collection/${item._id}`,
+                  id: item._id}}
+                  className="btn btn-dark btn-md mb-5">
+                  Delete A Collection
+                </Link>
+            </div>
+          ))}
+        </>
       )
     } else return (<h2> Loading...</h2>)
   }
