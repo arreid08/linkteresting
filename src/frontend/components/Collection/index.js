@@ -51,12 +51,13 @@ function Collection(props) {
                     <div className="col-sm-4">
                         <h6>Collection: {collection.description}</h6>
                         <div className="btn-group">
-                            {links.map((item) => (
-                                <div className="link-list">
+                            {links.map((item,i) => (
+                                <div className="link-list" key={i}>
                                     <a href={item.link} target="blank">{item.title}</a><br></br>
                                     <Link to={{
                                         pathname: "/edit-link",
                                         linkId: item._id,
+                                        link: item,
                                         collectionId: collection._id
                                     }}>Edit</Link>
                                     <Link to={{
