@@ -41,7 +41,7 @@ function AddLink(props) {
 
   return (
     <>
-      <h6 classname="ALTitle">ADD LINK</h6>
+      <h6 className="ALTitle">ADD LINK</h6>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="ALlabel">
           Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
@@ -51,17 +51,19 @@ function AddLink(props) {
           Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
         </label>
         <br/>
-        <input className="button" type="submit" value="Submit" />
+        <input className="button, butt" type="submit" value="Submit" />
       </form>
+      
       <Link to='/collection-details'>
-        <button
-          className="button" 
-          type="submit" 
-          value="Cancel"
-          >Cancel
-        </button>
-      </Link>
-      {done ? <Redirect push to='/collection-details' /> : null}
+          <button
+            className="button" 
+            type="submit" 
+            value="Cancel"
+            >Cancel
+          </button>
+        </Link>
+        {done ? <Redirect push to='/collection-details' /> : null}
+      
     </>
   )
 }

@@ -1,12 +1,13 @@
 .ALTitle {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 5px;
     color: black;
+    margin-bottom: 28px;
 }
 
 .ALlabel {
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: black;
@@ -16,19 +17,30 @@
     border: black solid 1px;
     background-color: white;
     width: 280px;
+    height: 30px;
     margin: 5px auto;
-}
-
-.placeholder {
     font-style: italic;
     text-align: center;
     color: gray;
+
+}
+
+.butt {
+    margin-top: 25px;
+    padding: 5px 18px;
+    border-radius: 0;
+    background-color: black;
+    width: 30%;
+
+    color: white;
+    font-size: 8px;
+    letter-spacing: 5px;
+    text-transform: lowercase;
 }
 
 .button {
     padding: 5px 18px;
     /* margin: auto; */
-    cursor: pointer;
     /* margin-top: 20px;
     margin-bottom: 0; */
     margin: 10px 10px;
