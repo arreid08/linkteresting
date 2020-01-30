@@ -127,10 +127,10 @@ class App extends Component {
         <main>
           <Switch>
             <Route path="/" render={props => <Login handleLogin={this.handleLogin} />} exact />
-            <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} />} />
+            <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} state={props} />} />
             <Route path="/add-collection" component={AddCollection} />
-            <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} />} />
-            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} getLinkList={this.getLinkList} />} />
+            <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} state={props} />} />
+            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} getLinkList={this.getLinkList} state={props} />} />
             <Route path="/add-link" component={AddLink} />
             <Route path="/delete-link/:linkId" component={DeleteLink} />
           </Switch>

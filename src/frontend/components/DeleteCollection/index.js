@@ -6,11 +6,11 @@ function DeleteCollection(props) {
     const [collection, setCollection] = useState([])
     const [done, setDone] = useState(false)
     console.log("done", done)
-    // setDone(false)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let id = "5e32076400af20001717d958"
+        let id = props.state.match.params.collectionId
         fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
             method: 'DELETE',
             headers: {
@@ -31,9 +31,6 @@ function DeleteCollection(props) {
         setDone(true)
     }
 
-    //   return(
-    //     <Redirect push to='/user-home' />
-    //   )
 
     return (
         <div className='Delete'>
