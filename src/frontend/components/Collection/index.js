@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Collection.css'
+import { Item } from 'react-bootstrap/lib/Breadcrumb'
 
 function Collection(props) {
 
@@ -43,12 +44,10 @@ function Collection(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
+                        <h1>Loop?</h1>
                         <div className="btn-group">
-                            <li><Link to={links.link}>{links.title}</Link></li>
-                            <div className="btn-group">
-                                <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span className="caret"></span>
-                                </button>
+                  
+
                                 <ul className="dropdown-menu" role="menu">
                                     <li>Edit</li>
                                     <li><Link to="/edit-link">Edit</Link></li>
