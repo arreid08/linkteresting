@@ -44,14 +44,14 @@ function AddLink(props) {
 
   return (
     <>
-      <h4>Add a new link</h4>
+      <h6 classname="ALTitle">ADD LINK</h6>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-        <label className="label">
-          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+        <label className="ALlabel">
+          Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
         </label>
         <br/>
-        <label className="label">
-          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
+        <label className="ALlabel">
+          Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
         </label>
         <br/>
         <input className="button" type="submit" value="Submit" />
