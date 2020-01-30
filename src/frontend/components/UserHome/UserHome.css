@@ -14,12 +14,19 @@
      border: none;
  } */
 
- .card {
-     border: solid orange 1px;
-     background: none;
-     margin: auto;
- }
+.container {
+    border: none;
+    /* background: transparent; */
+    background-color: transparent !important;
+}
 
+ .card-body {
+     border: solid black 1px;
+     background: white;
+     margin: 20px;
+     padding: 0;
+     height: 130px;
+ }
 
  .card-body:hover {
     text-decoration: none;
@@ -27,26 +34,39 @@
     font-weight: bold;
  }
 
-.uh {
-    border: solid 1px blue;
+.title {
+    padding: 10px;    
+    margin: auto;
+    margin-top: 10px;
+
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2px;
 }
 
-h2 {
-    border: solid 1px pink;
-    padding-bottom: 20px;
-}
+.card-text {
+    margin: auto;
+    margin-top: 10px;
 
-h4 {
-    border: solid 1px green;
+    text-transform: lowercase;
+    font-size: 10px;
+    color: black;
+    letter-spacing: 1px;
 }
 
  .btn {
+    padding: 5px 18px;
+    /* margin: auto; */
+    cursor: pointer;
+    /* margin-top: 20px;
+    margin-bottom: 0; */
+    margin: 20px auto;
     border-radius: 0;
     background-color: black;
+
     color: white;
-    font-size: 10px;
+    font-size: 8px;
     letter-spacing: 5px;
-    padding: 5px 18px;
-    margin: auto;
-    cursor: pointer;
+    text-transform: lowercase;
  }
