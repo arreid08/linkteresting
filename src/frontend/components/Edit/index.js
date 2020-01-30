@@ -36,10 +36,10 @@ function Edit(props) {
       body: JSON.stringify(data)
     })
     .then((res) => {
-      props.refreshLinks(props.state.collectionId)
-    })
-    .then(() => {
-      setDone(true)
+      props.refreshLinks(props.state.location.collectionId)
+          .then(() => {
+              setDone(true)
+          })
     })
   }
 
@@ -49,7 +49,7 @@ function Edit(props) {
   }
 
   const fetchLink = (id) => {
-    const foundL = props.state.location.linkId.find(d => d._id === id)
+    const foundL = props.state.location.find(d => d.linkId === id)
     return foundL && foundL.link
   }
 

@@ -162,7 +162,7 @@ class App extends Component {
             <Route path="/collection-details" render={props => <Collection setActive={this.setActive} getActive={this.getActive} getLinkList={this.getLinkList} getActiveLinks={this.getActiveLinks} state={props} />} />
             <Route path="/delete-link/" render={props => <DeleteLink state={props} refreshLinks={this.refreshLinks} />} />
             <Route path="/add-link" render={props => <AddLink refreshLinks={this.refreshLinks} state={props} />} />
-            <Route path="/edit-link/" render={props => <Edit refreshLinks={this.refreshLinks} state={props} />} />
+            <Route path="/edit-link/" render={props => <Edit getLinkList={this.getLinkList} refreshLinks={this.refreshLinks} state={props} />} />
           </Switch>
           {this.state.gotUser ? <Redirect push to="/user-home" /> : null}
         </main>
