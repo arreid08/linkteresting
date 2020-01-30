@@ -34,10 +34,7 @@ class UserHome extends Component {
           <span>
             {this.state.collections.map(item => (
               <Link to="/collection-details"
-              >
-                {/* move the next line before > in 37 */}
-                {/* className="card-body" */}
-                <p>{item.parent}</p>
+              className="card-body">
                 <h2>
                   {item.title}
                 </h2>
