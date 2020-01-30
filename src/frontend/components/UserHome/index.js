@@ -32,29 +32,26 @@ class UserHome extends Component {
       return (
         <div className="card-body">
           <span>
-            {this.state.collections.map(item => (
-
-                // key={item._id}
-
+            {this.state.collections.map((item,i) => (
+            <Link to={{
+              pathname: `/collection-details/`,
+              id: item._id,
+              collection: item}}>
+                {/* className="card-body" */}
+              <h2>
+                {item.title}
+              </h2>
+              <h4 className="card-text">
+                {item.description}
+              </h4> 
               <Link to={{
-                pathname: `/collection-details/`,
-                id: item._id}}>
-                  {/* className="card-body" */}
-                <h2>
-                  {item.title}
-                </h2>
-                <h4 className="card-text">
-                  {item.description}
-                </h4>
-                
-                <Link to={{
-                  pathname: `/delete-collection/${item._id}`,
-                  id: item._id}}
-                  className="btn btn-dark btn-md mb-5">
-                  Delete A Collection
-                    </Link>
-                    <hr></hr>
-                    <br></br><br></br>
+                pathname: `/delete-collection/${item._id}`,
+                id: item._id}}
+                className="btn btn-dark btn-md mb-5">
+                Delete A Collection
+              </Link>
+              <hr></hr>
+              <br></br><br></br>
               </Link>
             ))}
           </span>

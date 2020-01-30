@@ -51,10 +51,6 @@ function AddLink(props) {
           Link: <input className="text-box" type="text" onChange={handleChangeLink} />
         </label>
         <br/>
-        {/* <label className="label">
-          Tag: <input className="text-box" type="text" onChange={handleChangeTag} />
-        </label>
-        <br/> */}
         <input className="button" type="submit" value="Submit" />
       </form>
       <Link to='/collection-details'>
