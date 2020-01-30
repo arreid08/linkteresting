@@ -15,12 +15,18 @@ function Collection(props) {
             if (props.state.location.collection) {
                 props.setActive(props.state.location.collection)
                 setCollection(props.state.location.collection)
-            } else { setCollection(props.getActive()) }
+                props.getLinkList(props.state.location.id)
+                    .then(res => {
+                        console.log("Setting Links ", res)
+                        setLinks(res)
+                    })
+            } else {
+                setCollection(props.getActive())
+                setLinks(props.getActiveLinks())
+            }
+
         }
-        props.getLinkList(props.state.location.id)
-            .then(res => {
-                setLinks(res)
-            })
+
     }, [])
 
     console.log("links", links)
