@@ -6,6 +6,7 @@ import './Login.css'
 function Login(props) {
 
     const [user, setUser] = useState([])
+    const [waiting, setWaiting] = useState(false)
 
 
     const handleChangeUser = (e) => {
@@ -17,6 +18,7 @@ function Login(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         props.handleLogin(user)
+        setWaiting(true)
     }
 
     return (
@@ -32,7 +34,7 @@ function Login(props) {
                 <br />
                 <input className="button" type="submit" value="login" />
             </form>
-
+            {waiting ? <p>Fetching User Data... </p> : null}
         </div>
     )
 }
