@@ -33,8 +33,12 @@ class UserHome extends Component {
         <div className="card-body">
           <span>
             {this.state.collections.map(item => (
-              <Link to="/collection-details"
-              >
+
+                // key={item._id}
+
+              <Link to={{
+                pathname: `/collection-details/`,
+                id: item._id}}>
                   {/* className="card-body" */}
                 <h2>
                   {item.title}
