@@ -16,10 +16,11 @@ function DeleteLink(props) {
         })
             .then((res) => {
                 props.refreshLinks(props.state.location.collectionId)
+                    .then(() => {
+                        setDone(true)
+                    })
             })
-            .then(() => {
-                setDone(true)
-            })
+
     }
 
     return (

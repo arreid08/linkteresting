@@ -27,16 +27,17 @@ function AddLink(props) {
     fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-    .then((res) => {
-      props.refreshLinks(props.state.collectionId)
-    })
-    .then(() => {
-      setDone(true)
-    })
+      .then((res) => {
+        props.refreshLinks(props.state.collectionId)
+          .then(() => {
+            setDone(true)
+          })
+      })
+
   }
 
   return (
@@ -46,9 +47,9 @@ function AddLink(props) {
         <label className="ALlabel">
           Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
         </label>
-        <br/>
-        <label className="ALlabel">
-          Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
+        <br />
+        <label className="label">
+          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
         </label>
         <br/>
         <input className="button, butt" type="submit" value="Submit" />
