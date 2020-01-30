@@ -27,38 +27,45 @@ function AddLink(props) {
     fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-    .then((res) => {
-      props.refreshLinks(props.state.collectionId)
-    })
-    .then(() => {
-      setDone(true)
-    })
+      .then((res) => {
+        props.refreshLinks(props.state.collectionId)
+          .then(() => {
+            setDone(true)
+          })
+      })
+
   }
 
   return (
     <>
-      <h4>Add a new link</h4>
+      <h6 classname="ALTitle">ADD LINK</h6>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-        <label className="label">
-          Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
+        <label className="ALlabel">
+          Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
         </label>
-        <br/>
+<<<<<<< HEAD
+        <br />
         <label className="label">
           Link: <input className="text-box" type="text" onChange={handleChangeLink} />
-        </label>
+=======
         <br/>
+        <label className="ALlabel">
+          Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
+>>>>>>> ddd653d527e959a0c72ab0e346a684477463e15d
+        </label>
+        <br />
         <input className="button" type="submit" value="Submit" />
       </form>
       <Link to='/collection-details'>
         <button
-          className="button" 
-          type="submit" 
+          className="button"
+          type="submit"
           value="Cancel"
-          >Cancel
+        >Cancel
         </button>
       </Link>
       {done ? <Redirect push to='/collection-details' /> : null}

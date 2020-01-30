@@ -120,14 +120,19 @@ class App extends Component {
   }
 
   refreshLinks = (id) => {
-    console.log("refreshLinks ", id)
-    this.getLinks(id)
-      .then(res => {
-        this.setState({ links: res })
-      })
-      .then(res => {
-        console.log("from refresh links", this.state.links)
-      })
+    return new Promise((resolve, reject) => {
+      console.log("refreshLinks ", id)
+      this.getLinks(id)
+        .then(res => {
+          this.setState({ links: res })
+        })
+        .then(res => {
+          console.log("from refresh links", this.state.links)
+        })
+        .then(res => resolve("done"))
+        .catch(error => console.log(error))
+    })
+
   }
 
   setActive = (obj) => {

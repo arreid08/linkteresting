@@ -10,6 +10,7 @@ function Collection(props) {
     const [collection, setCollection] = useState([])
 
     useEffect(() => {
+        console.log(props.state)
         if (props.state.location) {
             if (props.state.location.collection) {
                 props.setActive(props.state.location.collection)
@@ -21,6 +22,7 @@ function Collection(props) {
             } else {
                 setCollection(props.getActive())
                 setLinks(props.getActiveLinks())
+                console.log("setting data")
             }
 
         }
@@ -51,12 +53,17 @@ function Collection(props) {
                         <div className="btn-group">
                             {links.map((item) => (
                                 <div className="link-list">
-                                    <a href={item.link} target="blank">{item.title}</a>
+                                    <a href={item.link} target="blank">{item.title}</a><br></br>
                                     <Link to={{
                                         pathname: "/edit-link",
+<<<<<<< HEAD
                                         linkId: item._id,
                                         collectionId: collection._id
                                     }}>Edit</Link>
+=======
+                                        id: item._id
+                                    }}>Edit</Link><br></br>
+>>>>>>> 0251653eb775e0277e443e47466b5247af1bda96
                                     <Link to={{
                                         pathname: "/delete-link",
                                         id: item._id,
