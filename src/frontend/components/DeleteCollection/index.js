@@ -33,8 +33,8 @@ function DeleteCollection(props) {
 
     return (
         <div className='Delete'>
-            <p>Are you sure you want to delete this collection?</p>
-            <div className=".btn-group-justified">
+            <p className="dc-p">are you sure you want to delete this collection?</p>
+            <div className=".btn-group-justified p-4 m-4">
                 <button
                     className="button"
                     type="submit"

@@ -18,6 +18,8 @@
     border: none;
     /* background: transparent; */
     background-color: transparent !important;
+    margin: auto;
+    position: relative;
 }
 
  .card-body {
