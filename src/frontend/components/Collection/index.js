@@ -11,6 +11,7 @@ function Collection(props) {
     const [collection, setCollection] = useState([])
 
     useEffect(() => {
+        console.log(props.state)
         if (props.state.location) {
             if (props.state.location.collection) {
                 props.setActive(props.state.location.collection)
@@ -23,6 +24,7 @@ function Collection(props) {
             } else {
                 setCollection(props.getActive())
                 setLinks(props.getActiveLinks())
+                console.log("setting data")
             }
 
         }
