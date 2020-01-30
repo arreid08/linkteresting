@@ -56,14 +56,9 @@ function Collection(props) {
                                     <a href={item.link} target="blank">{item.title}</a><br></br>
                                     <Link to={{
                                         pathname: "/edit-link",
-<<<<<<< HEAD
                                         linkId: item._id,
                                         collectionId: collection._id
                                     }}>Edit</Link>
-=======
-                                        id: item._id
-                                    }}>Edit</Link><br></br>
->>>>>>> 0251653eb775e0277e443e47466b5247af1bda96
                                     <Link to={{
                                         pathname: "/delete-link",
                                         id: item._id,
