@@ -4,11 +4,14 @@ import { Link, Redirect } from 'react-router-dom'
 
 function DeleteCollection(props) {
     const [collection, setCollection] = useState([])
+    const [done, setDone] = useState(false)
+    console.log("done", done)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        fetch(`http://list-links.herokuapp.com/api/collection/${props.collectionId}`, {
+        let id = props.state.match.params.collectionId
+        fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,15 +22,15 @@ function DeleteCollection(props) {
                 setCollection(res)
                 console.log('res', res)
             }, [])
+            .then(res => {
+                props.refreshCollections()
+            })
             .catch((error) => {
                 console.log("error", error)
             })
-
+        setDone(true)
     }
 
-    //   return(
-    //     <Redirect push to='/user-home' />
-    //   )
 
     return (
         <div className='Delete'>
@@ -49,6 +52,7 @@ function DeleteCollection(props) {
                     </button>
                 </Link>
             </div>
+            {done ? <Redirect push to='/user-home' /> : null}
         </div>
     )
 }
