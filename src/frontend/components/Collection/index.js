@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Collection.css'
-import { Item } from 'react-bootstrap/lib/Breadcrumb'
+
 
 function Collection(props) {
 
@@ -45,9 +45,15 @@ function Collection(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
-                        <h1>Loop?</h1>
+                     <h6>Collection: {collection.description}</h6>
                         <div className="btn-group">
                   
+                        {console.log("This is links",links)}
+                        {links.map((item) => (
+                            <div className="link-list">
+                            <a href={item.link} target="blank">{item.title}</a>
+                            </div>
+                            ))}
 
                                 <ul className="dropdown-menu" role="menu">
                                     <li>Edit</li>
@@ -57,15 +63,8 @@ function Collection(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="col-sm-4">
-                        <li><a href="#">Links here..</a></li>
-                    </div>
-                    <div className="col-sm-4">
-                        <li><a href="#">Links here..</a></li>
-                    </div> */}
                 </div>
             </div>
-        </div>
     )
 }
 
