@@ -6,7 +6,6 @@ import './Collection.css'
 
 function Collection(props) {
 
-    console.log("collection props", props)
     const [links, setLinks] = useState([])
     const [collection, setCollection] = useState([])
 
@@ -17,7 +16,6 @@ function Collection(props) {
                 setCollection(props.state.location.collection)
                 props.getLinkList(props.state.location.id)
                     .then(res => {
-                        console.log("Setting Links ", res)
                         setLinks(res)
                     })
             } else {
@@ -28,9 +26,6 @@ function Collection(props) {
         }
 
     }, [])
-
-    console.log("links", links)
-    console.log("collection", collection)
 
     return (
         <div>
@@ -54,14 +49,13 @@ function Collection(props) {
                     <div className="col-sm-4">
                         <h6>Collection: {collection.description}</h6>
                         <div className="btn-group">
-
-                            {console.log("This is links", links)}
                             {links.map((item) => (
                                 <div className="link-list">
                                     <a href={item.link} target="blank">{item.title}</a>
                                     <Link to={{
                                         pathname: "/edit-link",
-                                        id: item._id
+                                        linkId: item._id,
+                                        collectionId: collection._id
                                     }}>Edit</Link>
                                     <Link to={{
                                         pathname: "/delete-link",
