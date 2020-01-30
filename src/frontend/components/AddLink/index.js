@@ -48,13 +48,6 @@ function AddLink(props) {
           Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
         </label>
 
-        <br/>
-        <label className="ALlabel">
-          Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
-        <br />
-        <label className="label">
-          Link: <input className="text-box" type="text" onChange={handleChangeLink} />
-        <br/>
         <label className="ALlabel">
           Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
         </label>
