@@ -46,26 +46,30 @@ function Collection(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
-                     <h6>Collection: {collection.description}</h6>
+                        <h6>Collection: {collection.description}</h6>
                         <div className="btn-group">
-                  
-                        {console.log("This is links",links)}
-                        {links.map((item) => (
-                            <div className="link-list">
-                            <a href={item.link} target="blank">{item.title}</a>
-                            </div>
+
+                            {console.log("This is links", links)}
+                            {links.map((item) => (
+                                <div className="link-list">
+                                    <a href={item.link} target="blank">{item.title}</a>
+                                    <Link to={{
+                                        pathname: "/edit-link",
+                                        id: item._id
+                                    }}>Edit</Link>
+                                    <Link to={{
+                                        pathname: "/delete-link",
+                                        id: item._id
+                                    }}>Delete</Link>
+                                </div>
                             ))}
 
-                                <ul className="dropdown-menu" role="menu">
-                                    <li>Edit</li>
-                                    <li><Link to="/edit-link">Edit</Link></li>
-                                    <li><Link to="/delete-link">Delete</Link></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     )
 }
 
