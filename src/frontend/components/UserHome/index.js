@@ -30,7 +30,8 @@ class UserHome extends Component {
       console.log("this is this.state.collections:", this.state.collections)
       console.log("this is this.state.collections.description:", this.state.collections.values)
       return (
-        <div className="container">
+        <div className="collections">
+        {/* <div className="col-md-centered center-block"> */}
           
           {/* <div className="uh-header">
             <h1 className="collect-title">

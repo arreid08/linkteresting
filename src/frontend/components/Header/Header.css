@@ -30,3 +30,13 @@ a:link {
     text-decoration: none;
 }
 
+@media screen and (min-width: 415px) {
+    h1 {
+        font-size: 40px;
+        letter-spacing: 15px;
+    }
+
+    
+}
+
+
