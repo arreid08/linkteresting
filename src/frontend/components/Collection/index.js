@@ -33,7 +33,8 @@ function Collection(props) {
                 <Link
                     to={{
                         pathname: '/add-link',
-                        links: links
+                        links: links,
+                        collectionId: collection._id
                     }}
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>

@@ -4,6 +4,9 @@ import { Link, Redirect } from 'react-router-dom'
 
 function AddLink(props) {
 
+  console.log("add link", props.state)
+  console.log("add link coll", props.state.collection)
+  console.log("add state link", props.state.link)
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
 
@@ -23,7 +26,7 @@ function AddLink(props) {
       link: link
     }
 
-    fetch('http://list-links.herokuapp.com/api/link', {
+    fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -38,6 +41,9 @@ function AddLink(props) {
       )
     })
   }
+
+  console.log("add user input link", link)
+  console.log("add user input title", title)
 
   return (
     <>
