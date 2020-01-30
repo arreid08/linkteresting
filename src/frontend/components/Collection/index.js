@@ -58,11 +58,11 @@ function Collection(props) {
                             {console.log("This is links", links)}
                             {links.map((item) => (
                                 <div className="link-list">
-                                    <a href={item.link} target="blank">{item.title}</a>
+                                    <a href={item.link} target="blank">{item.title}</a><br></br>
                                     <Link to={{
                                         pathname: "/edit-link",
                                         id: item._id
-                                    }}>Edit</Link>
+                                    }}>Edit</Link><br></br>
                                     <Link to={{
                                         pathname: "/delete-link",
                                         id: item._id,
