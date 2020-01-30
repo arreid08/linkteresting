@@ -34,21 +34,23 @@ class UserHome extends Component {
           <span>
             {this.state.collections.map(item => (
               <Link to="/collection-details"
-              className="card-body">
+              >
+                  {/* className="card-body" */}
                 <h2>
                   {item.title}
                 </h2>
                 <h4 className="card-text">
                   {item.description}
                 </h4>
-                <hr></hr>
+                
                 <Link to={{
                   pathname: `/delete-collection/${item._id}`,
-                  id: item._id
-                }}
+                  id: item._id}}
                   className="btn btn-dark btn-md mb-5">
                   Delete A Collection
-                        </Link>
+                    </Link>
+                    <hr></hr>
+                    <br></br><br></br>
               </Link>
             ))}
           </span>
