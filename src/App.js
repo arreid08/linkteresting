@@ -18,6 +18,7 @@ class App extends Component {
       user: {},
       collections: [],
       links: [],
+      active: {},
       gotUser: false
     }
   }
@@ -120,6 +121,16 @@ class App extends Component {
       })
   }
 
+  setActive = (obj) => {
+    this.setState({
+      active: obj
+    })
+  }
+
+  getActive = () => {
+    return this.state.active
+  }
+
   render() {
     return (
       <div className="App">
@@ -130,7 +141,7 @@ class App extends Component {
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} state={props} />} />
             <Route path="/add-collection" component={AddCollection} />
             <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} state={props} />} />
-            <Route path="/collection-details" render={props => <Collection getDetails={this.getDetails} getLinkList={this.getLinkList} state={props} />} />
+            <Route path="/collection-details" render={props => <Collection setActive={this.setActive} getActive={this.getActive} getLinkList={this.getLinkList} state={props} />} />
             <Route path="/add-link" component={AddLink} />
             <Route path="/delete-link/:linkId" component={DeleteLink} />
           </Switch>

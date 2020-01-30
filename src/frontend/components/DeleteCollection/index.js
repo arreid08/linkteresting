@@ -5,7 +5,6 @@ import { Link, Redirect } from 'react-router-dom'
 function DeleteCollection(props) {
     const [collection, setCollection] = useState([])
     const [done, setDone] = useState(false)
-    console.log("done", done)
 
 
     const handleSubmit = (e) => {
