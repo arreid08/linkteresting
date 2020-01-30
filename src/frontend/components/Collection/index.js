@@ -10,47 +10,28 @@ function Collection(props) {
     const [collection, setCollection] = useState([])
 
     useEffect(() => {
-        if (props.location) {
-            if (props.location.key) {
-                let i = props.location.key
-                let coll = props.getDetails()
-                setCollection(coll.collection[i])
+        if (props.state.location) {
+            if (props.state.location.collection) {
+                setCollection(props.state.location.collection)
             }
         }
-        props.getLinkList("5e31c729a725b400041655bb")
+        props.getLinkList(props.state.location.id)
             .then(res => {
                 setLinks(res)
-                console.log("Links ", res)
             })
-
-        // fetchAllLinks()
     }, [])
 
-    //console.log("this is get details ", props.getDetails())
-
-    // const fetchAllLinks = () => {
-    //     fetch('http://list-links.herokuapp.com/api/link')
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             setLinks(res)
-    //         }, [])
-    //         .catch((error) => {
-    //             console.log("error", error)
-    //         })
-    // }
-
     console.log("links", links)
-    console.log("collection get details return", collection)
+    console.log("collection", collection)
 
     return (
         <div>
-            <h4>Collection Name Here</h4>
+            <h4>{collection.title}</h4>
             <nav className="btn-group btn-group-justified">
                 <Link
                     to={{
                         pathname: '/add-link',
-                        links: links,
-                        //fetchAllLinks: { fetchAllLinks }
+                        links: links
                     }}
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>

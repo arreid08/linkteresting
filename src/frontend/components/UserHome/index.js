@@ -31,37 +31,28 @@ class UserHome extends Component {
       console.log("this is this.state.collections.description:", this.state.collections.values)
       return (
         <>
-        <div className="col-md">
-          {/* <div className="card-body"> */}
-          <div className="card">
-            {this.state.collections.map(item => (
-              
-              <Link to="/collection-details"
-              >
-                {/* move the next line before > in 37 */}
-                {/* className="card-body" */}
-
-                <p className="uh">{item.parent}</p>
+          {this.state.collections.map((item,i) => (
+            <div className="card-body" key={i}>
+              <Link to={{
+                pathname: `/collection-details/`,
+                id: item._id,
+                collection: item}}>
+                  {/* className="card-body" */}
                 <h2>
                   {item.title}
                 </h2>
                 <h4 className="card-text">
                   {item.description}
                 </h4>
-                <hr></hr>
+                </Link>
                 <Link to={{
                   pathname: `/delete-collection/${item._id}`,
-                  id: item._id
-                }}
+                  id: item._id}}
                   className="btn btn-dark btn-md mb-5">
-                  delete collection
-                        </Link>
-              </Link>
-
-            ))}
-          </div>
-          {/* </div> */}
-        </div>
+                  Delete A Collection
+                </Link>
+            </div>
+          ))}
         </>
       )
     } else return (<h2> Loading...</h2>)
