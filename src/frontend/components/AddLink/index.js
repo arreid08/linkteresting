@@ -6,9 +6,10 @@ function AddLink(props) {
 
   console.log("add link", props.state)
   console.log("add link coll", props.state.collection)
-  console.log("add state link", props.state.link)
+  console.log("add state link", props.state.location.link)
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
+  const [done, setDone] = useState(false)
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
@@ -33,17 +34,13 @@ function AddLink(props) {
       },
       body: JSON.stringify(data)
     })
-    .then((res) => res.json())
+    .then((res) => {
+      props.refreshLinks(props.state.collectionId)
+    })
     .then(() => {
-      props.fetchAllLinks()
-      return(
-        <Redirect push to='/collection_details' />
-      )
+      setDone(true)
     })
   }
-
-  console.log("add user input link", link)
-  console.log("add user input title", title)
 
   return (
     <>
@@ -67,6 +64,7 @@ function AddLink(props) {
           >Cancel
         </button>
       </Link>
+      {done ? <Redirect push to='/collection-details' /> : null}
     </>
   )
 }
