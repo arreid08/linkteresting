@@ -1,49 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './DeleteLink.css'
 import { Link, Redirect } from 'react-router-dom'
 
 function DeleteLink(props) {
+    const [done, setDone] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-    
-        fetch(`http://list-links.herokuapp.com/api/link`, {
-          method: 'DELETE',
-          headers: {
-              'Content-Type': 'application/json'
-          }
+        let id = props.state.match.params.collectionId
+        fetch(`http://list-links.herokuapp.com/api/link/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-        .then((res) => res.json())
-        .then(() => {
-          props.fetchAllCollections()
-          return(
-            <Redirect push to='/user-home' />
-          )
-        })
-      }
-    
+            .then((res) => res.json())
+            .then(() => {
+                props.fetchAllCollections()
+            })
+    }
+
     return (
         <div className='Delete'>
             <p>Are you sure you want to delete this link?</p>
             <div className=".btn-group-justified">
-                <button 
-                    className="button" 
-                    type="submit" 
+                <button
+                    className="button"
+                    type="submit"
                     value="Submit"
                     onClick={handleSubmit}
                 >Submit
                 </button>
                 <Link to='/collection-details'>
                     <button
-                        className="button" 
-                        type="submit" 
+                        className="button"
+                        type="submit"
                         value="Cancel"
-                        >Cancel
+                    >Cancel
                     </button>
                 </Link>
             </div>
+            {done ? <Redirect push to='/collection-details' /> : null}
         </div>
     )
 }
-    
+
 export default DeleteLink

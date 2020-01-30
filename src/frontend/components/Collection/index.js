@@ -12,8 +12,9 @@ function Collection(props) {
     useEffect(() => {
         if (props.state.location) {
             if (props.state.location.collection) {
+                props.setActive(props.state.location.collection)
                 setCollection(props.state.location.collection)
-            }
+            } else { setCollection(props.getActive()) }
         }
         props.getLinkList(props.state.location.id)
             .then(res => {
