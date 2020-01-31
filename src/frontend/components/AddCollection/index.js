@@ -46,17 +46,17 @@ function AddCollection(props) {
 
   return (
     <>
-      <h4>ADD COLLECTION</h4>
+      <h6 className="AddTitle">Add Collection</h6>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-        <label className="label">
+        <label className="AddLabel, titleb">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} />
         </label>
         <br />
-        <label className="label">
-          Description: <input className="text-box" type="text" onChange={handleChangeDescription} />
+        <label className="AddLabel">
+          Description: <input className="text-box, desc" type="text" onChange={handleChangeDescription} />
         </label>
         <br />
-        <input className="button" type="submit" value="Submit" />
+        <input className="button, butt" type="submit" value="Submit" />
       </form>
       <Link to='/user-home'>
         <button

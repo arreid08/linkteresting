@@ -31,8 +31,12 @@ function Collection(props) {
 
     return (
         <div>
-            <h4>{collection.title}</h4>
+            <h6 className="title">{collection.title}</h6>
             <nav className="btn-group btn-group-justified">
+                <Link to="/user-home" className="btn-group">
+                    <button className="btn btn-dark btn-md mb-5">Go Back</button>
+                </Link>
+                <br />
                 <Link
                     to={{
                         pathname: '/add-link',
@@ -42,14 +46,13 @@ function Collection(props) {
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>
                 </Link>
-                <Link to="/user-home" className="btn-group">
-                    <button className="btn btn-dark btn-md mb-5">Go Back</button>
-                </Link>
+
+
             </nav>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4">
-                        <h6>Collection: {collection.description}</h6>
+                        <h6>{collection.description}</h6>
                         <div className="btn-group">
                             {links.map((item,i) => (
                                 <div className="link-list" key={i}>

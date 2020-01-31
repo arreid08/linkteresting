@@ -1,4 +1,4 @@
-.ALTitle {
+.AddTitle {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 5px;
@@ -6,7 +6,7 @@
     margin-bottom: 28px;
 }
 
-.ALlabel {
+.AddLabel {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;

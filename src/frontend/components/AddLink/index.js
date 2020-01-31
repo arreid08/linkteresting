@@ -56,13 +56,13 @@ function AddLink(props) {
 
   return (
     <>
-      <h6 className="ALTitle">ADD LINK</h6>
+      <h6 className="AddTitle">ADD LINK</h6>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
-        <label className="ALlabel">
+        <label className="AddLabel">
           Title: <input className="text-box" type="text" placeholder="enter title" onChange={handleChangeTitle} />
         </label>
 
-        <label className="ALlabel">
+        <label className="AddLabel">
           Link: <input className="text-box" type="text" placeholder="enter link" onChange={handleChangeLink} />
         </label>
         <br />
