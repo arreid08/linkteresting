@@ -8,6 +8,7 @@ function DeleteCollection(props) {
 
 
     const handleSubmit = (e) => {
+        console.log("calling delete")
         e.preventDefault()
         let id = props.state.match.params.collectionId
         fetch(`https://list-links.herokuapp.com/api/collection/${id}`, {
@@ -16,18 +17,16 @@ function DeleteCollection(props) {
                 'Content-Type': 'application/json'
             }
         })
-            .then((res) => res.json())
-            .then((res) => {
-                setCollection(res)
-                console.log('res', res)
-            }, [])
             .then(res => {
                 props.refreshCollections()
+                    .then(res => {
+                        setDone(true)
+                    })
             })
             .catch((error) => {
                 console.log("error", error)
             })
-        setDone(true)
+
     }
 
     return (

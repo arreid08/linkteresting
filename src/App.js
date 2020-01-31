@@ -74,10 +74,15 @@ class App extends Component {
   }
 
   refreshCollections = () => {
-    this.getCollections()
-      .then(res => {
-        this.setState({ collections: res })
-      })
+    return new Promise((resolve, reject) => {
+      this.getCollections(this.state.user._id)
+        .then(res => {
+          this.setState({ collections: res })
+        })
+        .then(res => resolve(true))
+        .catch(error => console.log(error))
+    })
+
   }
 
   getDetails = () => {

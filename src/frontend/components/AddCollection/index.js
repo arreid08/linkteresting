@@ -33,9 +33,9 @@ function AddCollection(props) {
     })
       .then((res) => {
         props.refreshCollections(props.state.location.user._id)
-      })
-      .then(() => {
-        setDone(true)
+          .then(() => {
+            setDone(true)
+          })
       })
   }
 
