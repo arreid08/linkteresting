@@ -24,10 +24,8 @@ function Collection(props) {
                 setLinks(props.getActiveLinks())
                 console.log("setting data")
             }
-
         }
-
-    }, [])
+    }, [props])
 
     return (
         <div>
@@ -67,8 +65,6 @@ function Collection(props) {
                                     }}>Delete</Link>
                                 </div>
                             ))}
-
-
                         </div>
                     </div>
                 </div>
