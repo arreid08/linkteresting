@@ -49,21 +49,23 @@ function Collection(props) {
                                 <ul className="link-list" key={i}>
                                     <li>
                                     <a href={item.link} target="blank">{item.title}</a>
-                                    <button className="btn-group btn-group-justified linkbutt">
+                                    < br/>
+                                    <div className="btn-group btn-group-justified butts">
                                     <Link to={{
                                         pathname: "/edit-link",
                                         linkId: item._id,
                                         link: item,
                                         collectionId: collection._id
                                     }}>Edit</Link>
-                                    </button>
-                                    <button className="btn-group btn-group-justified linkbutt">
+                                    </div>
+
+                                    <div className="btn-group btn-group-justified butts">
                                     <Link to={{
                                         pathname: "/delete-link",
                                         id: item._id,
                                         collectionId: collection._id
                                     }}>Delete</Link>
-                                    </button>
+                                    </div>
                                     </li>
 
                                 </ul>
