@@ -25,8 +25,6 @@ class App extends Component {
 
   getCollections = (id) => {
     return new Promise((resolve, reject) => {
-      // let id = this.state.user._id
-      console.log("getCollections id ", id)
       fetch(`https://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
@@ -52,24 +50,18 @@ class App extends Component {
   }
 
   handleLogin = (id) => {
-    console.log("handle login id ", id)
     this.getUser(id)
       .then(res => {
-        console.log("got user", res)
         let user = res
         this.getCollections(res._id)
           .then(res => {
-            console.log("got collections ", res)
             this.setState({
               collections: res,
               gotUser: true,
               user: user
             })
-            console.log("state ", this.state)
           })
       })
-
-
       .catch(error => { console.log(error) })
   }
 
@@ -104,7 +96,6 @@ class App extends Component {
     return new Promise((resolve, reject) => {
       this.getLinks(id)
         .then(res => {
-          console.log("got links ", res)
           this.setState({
             links: res
           })
@@ -116,7 +107,6 @@ class App extends Component {
 
   refreshLinks = (id) => {
     return new Promise((resolve, reject) => {
-      console.log("refreshLinks ", id)
       this.getLinks(id)
         .then(res => {
           this.setState({ links: res })

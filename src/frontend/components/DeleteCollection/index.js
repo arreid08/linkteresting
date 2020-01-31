@@ -3,6 +3,7 @@ import './DeleteCollection.css'
 import { Link, Redirect } from 'react-router-dom'
 
 function DeleteCollection(props) {
+    
     const [collection, setCollection] = useState([])
     const [done, setDone] = useState(false)
 
@@ -19,7 +20,6 @@ function DeleteCollection(props) {
             .then((res) => res.json())
             .then((res) => {
                 setCollection(res)
-                console.log('res', res)
             }, [])
             .then(res => {
                 props.refreshCollections()

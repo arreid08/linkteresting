@@ -8,12 +8,9 @@ function Login(props) {
     const [user, setUser] = useState([])
     const [waiting, setWaiting] = useState(false)
 
-
     const handleChangeUser = (e) => {
         setUser(e.target.value)
     }
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault()

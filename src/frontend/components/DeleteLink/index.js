@@ -14,13 +14,12 @@ function DeleteLink(props) {
                 'Content-Type': 'application/json'
             }
         })
-            .then((res) => {
-                props.refreshLinks(props.state.location.collectionId)
-                    .then(() => {
-                        setDone(true)
-                    })
-            })
-
+        .then((res) => {
+            props.refreshLinks(props.state.location.collectionId)
+                .then(() => {
+                    setDone(true)
+                })
+        })
     }
 
     return (

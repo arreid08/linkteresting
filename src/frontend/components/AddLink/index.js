@@ -37,22 +37,6 @@ function AddLink(props) {
             setDone(true)
           })
       })
-
-
-    // fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then((res) => {
-    //     props.refreshLinks(props.state.collectionId)
-    //       .then(() => {
-    //         setDone(true)
-    //       })
-    //   })
-
   }
 
   return (
