@@ -1,0 +1,50 @@
+import React from 'react'
+import { shallow } from 'enzyme'
+import Edit from './index'
+function Edit(props) {
+
+    const [title, setTitle] = useState([])
+    const [link, setLink] = useState([])
+    const [done, setDone] = useState(false)
+  
+    useEffect(() => {
+      setTitle(props.state.location.link.title)
+      setLink(props.state.location.link.link)
+    }, [])
+  
+    const handleChangeTitle = (e) => {
+      setTitle(e.target.value)
+    }
+  
+    const handleChangeLink = (e) => {
+      setLink(e.target.value)
+    }
+  
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      const data = {
+        title: title,
+        link: link
+      }
+      console.log("link id", props.state.location.linkId)
+      console.log("data ", data)
+      console.log("title and link ", title, link)
+      const url = `http://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
+      console.log("url ", url)
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+  
+        },
+        body: JSON.stringify(data)
+      })
+    }
+    //// Test Script
+describe('Collection Name Here', () => {
+    it('should have a Paragraph that says "Are you sure you want to delete this collection?"', () => {
+        const component = shallow(<Edit/>)
+        expect(component.contains(<br />)).toBe(true)
+        //expect(title).contains('value')
+      })
+  })
