@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Edit.css'
 import { Link, Redirect } from 'react-router-dom'
-
 function Edit(props) {
-
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
   const [done, setDone] = useState(false)
@@ -16,11 +14,9 @@ function Edit(props) {
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
   }
-
   const handleChangeLink = (e) => {
     setLink(e.target.value)
   }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     const data = {
@@ -36,7 +32,6 @@ function Edit(props) {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
-
       },
       body: JSON.stringify(data)
     })
@@ -47,7 +42,6 @@ function Edit(props) {
     //   setDone(true)
     // })
   }
-
   return (
     <>
       {/* what exactly is our header here??  */}
@@ -75,5 +69,5 @@ function Edit(props) {
     </>
   )
 }
-
 export default Edit
+

@@ -1,28 +1,35 @@
 .Delete {
     background-color: white;
-    border: black solid 1px;
-    height: 170px;
+    border: black solid 5px;
+    height: 135px;
     width: 90%;
     margin: auto;
     padding: 15px;
 }
 
 .dc-p {
-    margin: 20px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 
     text-transform: lowercase;
     font-size: 12px;
     color: black;
     letter-spacing: 1px;
+    line-height: 20px;
 }
 
-.btn-group-justified, button {
-    padding: 5px 18px;
+.buttonb {
+    padding: 5px 22px;
     /* margin: auto; */
     cursor: pointer;
     /* margin-top: 20px;
     margin-bottom: 0; */
-    margin: 20px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 0px;
     border-radius: 0;
     background-color: black;
 
@@ -30,12 +37,12 @@
     font-size: 8px;
     letter-spacing: 5px;
     text-transform: lowercase;
+    text-align: center;
  }
 
  @media screen and (min-width: 415px) {
      .Delete {
          width: 450px;
+         height: 120px;
      }
  }
-
- 
