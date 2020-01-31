@@ -9,9 +9,26 @@
     width: 60%;
     margin: auto;
 }
+/* .link-list {
+    border: black solid 1px;
+    display: block;
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    width: 70px;
+    display: block;
+}
 
-a {
+a  {
+    display: block;
+    width: 60px;
     text-decoration: none;
     color: black;
     cursor: pointer;
-}
+
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+} */
+
