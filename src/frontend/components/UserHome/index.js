@@ -29,10 +29,9 @@ class UserHome extends Component {
       console.log("this is this.state.collections.description:", this.state.collections.values)
       return (
         <div className="collections">
-          <div className="col-md-centered center-block">
             <div className="uh-header">
               <h1 className="collect-title">
-                {this.state.user.username} collections 
+                {this.state.user.username}'s collections 
               </h1>
               <Link to={{
                     pathname: '/add-collection',
@@ -67,7 +66,7 @@ class UserHome extends Component {
                   </Link>
               </div>
             ))}
-          </div>
+          
         </div>
       )
     } else return (<h2> Loading...</h2>)

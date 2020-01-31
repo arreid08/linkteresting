@@ -20,6 +20,7 @@ h1 {
     color: black;
     margin-top: 13px;
     text-decoration: none;
+    height: 1px;
 }
 
 .link {
@@ -35,8 +36,6 @@ a:link {
         font-size: 40px;
         letter-spacing: 15px;
     }
-
-    
 }
 
 

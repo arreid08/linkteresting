@@ -2,11 +2,17 @@
      margin: 30px;
  }
 
+.collect-title {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
 .collections {
     /* background: none; */
-    border: none;
+    /* border: none; */
     /* background: transparent; */
-    background-color: transparent !important;
+    /* background-color: transparent !important; */
     /* margin-left: auto;
     margin-right: auto; */
     margin: auto;
@@ -14,6 +20,8 @@
     position: absolute;
     /* display: relative;   */
     width: 100%;
+    border-top: 0px;
+    box-shadow: 0px white;
 }
 
  /* .card-body {
@@ -34,10 +42,10 @@
  .card-body {
      border: solid black 1px;
      background: white;
-     margin: 20px auto;
+     margin: auto;
      padding: 0;
      height: 130px;
-     width: 100%;
+     width: 85%;
  }
 
  .card-body:hover {
@@ -50,21 +58,22 @@
     padding: 10px;    
     margin: auto;
     margin-top: 10px;
-
     text-transform: uppercase;
     font-size: 14px;
     color: black;
     letter-spacing: 2px;
+    width: 70%;
 }
 
 .card-text {
     margin: auto;
     margin-top: 10px;
-
+    padding-bottom: 20px;
     text-transform: lowercase;
     font-size: 10px;
     color: black;
     letter-spacing: 1px;
+    width: 70%
 }
 
  .btn {
@@ -73,13 +82,35 @@
     cursor: pointer;
     /* margin-top: 20px;
     margin-bottom: 0; */
-    margin: 20px auto;
+    margin: auto;
     border-radius: 0;
     background-color: black;
-    width: 60%;
+    width: 200px;
 
     color: white;
     font-size: 8px;
     letter-spacing: 5px;
     text-transform: lowercase;
  }
+
+ @media screen and (min-width: 415px) {
+    .collections {
+        /* background: none; */
+        border: none;
+        /* background: transparent; */
+        /* background-color: transparent !important; */
+        /* margin-left: auto;
+        margin-right: auto; */
+        margin: auto;
+        /* position absolute is what's removing the background */
+        position: absolute;
+        /* display: relative;   */
+        width: 100%;
+        left: 50%;
+    }
+
+    .card-body {
+        width: 70%;
+    }
+}
+
