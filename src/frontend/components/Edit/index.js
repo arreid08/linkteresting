@@ -40,12 +40,13 @@ function Edit(props) {
       },
       body: JSON.stringify(data)
     })
-    // .then((res) => {
-    //   props.refreshLinks(props.state.collectionId)
-    // })
-    // .then(() => {
-    //   setDone(true)
-    // })
+      .then((res) => {
+        props.refreshLinks(props.state.location.collectionId)
+          .then(() => {
+            setDone(true)
+          })
+      })
+
   }
 
   return (
