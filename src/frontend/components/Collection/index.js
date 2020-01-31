@@ -23,10 +23,10 @@ function Collection(props) {
     }, [])
     return (
         <div>
-            <h6 className="title">{collection.title}</h6>
+            <h6 className="titleColl">{collection.title}</h6>
             <nav className="btn-group btn-group-justified">
                 <Link to="/user-home" className="btn-group">
-                    <button className="btn btn-dark btn-md mb-5">Go Back</button>
+                    <button className="btn btn-dark">Go Back</button>
                 </Link>
                 <br />
                 <Link
@@ -36,29 +36,37 @@ function Collection(props) {
                         collectionId: collection._id
                     }}
                     className="btn-group">
-                    <button className="btn btn-dark btn-md mb-5">New Link</button>
+                    <button className="btn btn-dark">New Link</button>
                 </Link>
             </nav>
-            <div className="container">
-                <div className="row">
+
+            <div className="containerC">
+                <div className="col">
                     <div className="col-sm-4">
-                        <h6>{collection.description}</h6>
-                        <div className="btn-group">
+                        <h6 className="descColl">{collection.description}</h6>
+                        <div className="btn-group linkbutt">
                             {links.map((item,i) => (
-                                <div className="link-list" key={i}>
-                                    <a href={item.link} target="blank">{item.title}</a><br></br>
+                                <ul className="link-list" key={i}>
+                                    <li>
+                                    <a href={item.link} target="blank">{item.title}</a>
+                                    <button className="btn-group btn-group-justified linkbutt">
                                     <Link to={{
                                         pathname: "/edit-link",
                                         linkId: item._id,
                                         link: item,
                                         collectionId: collection._id
                                     }}>Edit</Link>
+                                    </button>
+                                    <button className="btn-group btn-group-justified linkbutt">
                                     <Link to={{
                                         pathname: "/delete-link",
                                         id: item._id,
                                         collectionId: collection._id
                                     }}>Delete</Link>
-                                </div>
+                                    </button>
+                                    </li>
+
+                                </ul>
                             ))}
                         </div>
                     </div>
