@@ -152,7 +152,7 @@ class App extends Component {
           <Switch>
             <Route path="/" render={props => <Login handleLogin={this.handleLogin} />} exact />
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} state={props} />} />
-            <Route path="/add-collection" component={AddCollection} />
+            <Route path="/add-collection" render={props => <AddCollection getActive={this.getActive} state={props} />} />
             <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} state={props} />} />
             <Route path="/collection-details" render={props => <Collection setActive={this.setActive} getActive={this.getActive} getLinkList={this.getLinkList} getActiveLinks={this.getActiveLinks} state={props} />} />
             <Route path="/delete-link/" render={props => <DeleteLink state={props} refreshLinks={this.refreshLinks} />} />
