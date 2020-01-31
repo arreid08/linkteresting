@@ -7,8 +7,8 @@ import Collection from './index'
 // We will describe a block of tests
 describe('Collection Name Here', () => {
 	// we will write one individual test
-    it('should have a header that says "Collection Name Here"', () => {
+    it('Should Render New Link Button', () => {
         const component = shallow(<Collection/>)
-        expect(component.contains(<h4>Collection Name Here</h4>)).toBe(true)
+        expect(component.contains(<button className="btn btn-dark btn-md mb-5">New Link</button>)).toBe(true)
       })
   })

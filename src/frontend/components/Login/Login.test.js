@@ -5,10 +5,10 @@ import { shallow } from 'enzyme'
 import Login from './index'
 
 // We will describe a block of tests
-describe('Collection Name Here', () => {
+describe('Login Name Here', () => {
 	// we will write one individual test
-    it('should have a header that says "Are you sure you want to delete this collection?"', () => {
+    it('should have a paragraph that says "a place to store all of your bookmarks in collections so you’ll never lose them -- at last"', () => {
         const component = shallow(<Login/>)
-        expect(component.contains(<p>Linkteresting is a place to store all your bookmarks in categories so you never lose them.</p>)).toBe(true)
+        expect(component.contains(<p>a place to store all of your bookmarks in collections so you’ll never lose them -- at last</p>)).toBe(true)
       })
   })
