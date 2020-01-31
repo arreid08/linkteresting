@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
 import './Collection.css'
-
-
 function Collection(props) {
-
     const [links, setLinks] = useState([])
     const [collection, setCollection] = useState([])
-
     useEffect(() => {
         console.log(props.state)
         if (props.state.location) {
@@ -24,11 +19,8 @@ function Collection(props) {
                 setLinks(props.getActiveLinks())
                 console.log("setting data")
             }
-
         }
-
     }, [])
-
     return (
         <div>
             <h6 className="title">{collection.title}</h6>
@@ -46,8 +38,6 @@ function Collection(props) {
                     className="btn-group">
                     <button className="btn btn-dark btn-md mb-5">New Link</button>
                 </Link>
-
-
             </nav>
             <div className="container">
                 <div className="row">
@@ -70,8 +60,6 @@ function Collection(props) {
                                     }}>Delete</Link>
                                 </div>
                             ))}
-
-
                         </div>
                     </div>
                 </div>
@@ -79,5 +67,4 @@ function Collection(props) {
         </div>
     )
 }
-
 export default Collection
