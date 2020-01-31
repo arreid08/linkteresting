@@ -8,19 +8,18 @@ function DeleteLink(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         let id = props.state.location.id
-        fetch(`http://list-links.herokuapp.com/api/link/${id}`, {
+        fetch(`https://list-links.herokuapp.com/api/link/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-            .then((res) => {
-                props.refreshLinks(props.state.location.collectionId)
-                    .then(() => {
-                        setDone(true)
-                    })
-            })
-
+        .then((res) => {
+            props.refreshLinks(props.state.location.collectionId)
+                .then(() => {
+                    setDone(true)
+                })
+        })
     }
 
     return (

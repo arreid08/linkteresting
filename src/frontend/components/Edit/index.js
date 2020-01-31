@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './Edit.css'
 import { Link, Redirect } from 'react-router-dom'
+
 function Edit(props) {
+
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
   const [done, setDone] = useState(false)
@@ -9,7 +11,7 @@ function Edit(props) {
   useEffect(() => {
     setTitle(props.state.location.link.title)
     setLink(props.state.location.link.link)
-  }, [])
+  }, [props])
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
@@ -23,11 +25,9 @@ function Edit(props) {
       title: title,
       link: link
     }
-    console.log("link id", props.state.location.linkId)
-    console.log("data ", data)
-    console.log("title and link ", title, link)
-    const url = `http://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
-    console.log("url ", url)
+    
+    const url = `https://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
+
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -35,12 +35,13 @@ function Edit(props) {
       },
       body: JSON.stringify(data)
     })
-    // .then((res) => {
-    //   props.refreshLinks(props.state.collectionId)
-    // })
-    // .then(() => {
-    //   setDone(true)
-    // })
+      .then((res) => {
+        props.refreshLinks(props.state.location.collectionId)
+          .then(() => {
+            setDone(true)
+          })
+      })
+
   }
   return (
     <>

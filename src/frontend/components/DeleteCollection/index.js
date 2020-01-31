@@ -3,6 +3,7 @@ import './DeleteCollection.css'
 import { Link, Redirect } from 'react-router-dom'
 
 function DeleteCollection(props) {
+    
     const [collection, setCollection] = useState([])
     const [done, setDone] = useState(false)
 
@@ -10,7 +11,7 @@ function DeleteCollection(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         let id = props.state.match.params.collectionId
-        fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
+        fetch(`https://list-links.herokuapp.com/api/collection/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,7 +20,6 @@ function DeleteCollection(props) {
             .then((res) => res.json())
             .then((res) => {
                 setCollection(res)
-                console.log('res', res)
             }, [])
             .then(res => {
                 props.refreshCollections()

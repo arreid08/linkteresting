@@ -24,7 +24,7 @@ function AddLink(props) {
       link: link
     }
 
-    fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
+    fetch(`https://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -32,26 +32,11 @@ function AddLink(props) {
       body: JSON.stringify(data)
     })
       .then((res) => {
-        props.refreshLinks(props.state.collectionId)
+        props.refreshLinks(props.state.location.collectionId)
+          .then(() => {
+            setDone(true)
+          })
       })
-      .then(() => {
-        setDone(true)
-      })
-
-    // fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then((res) => {
-    //     props.refreshLinks(props.state.collectionId)
-    //       .then(() => {
-    //         setDone(true)
-    //       })
-    //   })
-
   }
 
   return (

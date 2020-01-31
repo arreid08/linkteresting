@@ -25,9 +25,7 @@ class App extends Component {
 
   getCollections = (id) => {
     return new Promise((resolve, reject) => {
-      // let id = this.state.user._id
-      console.log("getCollections id ", id)
-      fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
+      fetch(`https://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -40,7 +38,7 @@ class App extends Component {
 
   getUser = (name) => {
     return new Promise((resolve, reject) => {
-      fetch(`http://list-links.herokuapp.com/api/user/name/${name}`)
+      fetch(`https://list-links.herokuapp.com/api/user/name/${name}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -52,24 +50,18 @@ class App extends Component {
   }
 
   handleLogin = (id) => {
-    console.log("handle login id ", id)
     this.getUser(id)
       .then(res => {
-        console.log("got user", res)
         let user = res
         this.getCollections(res._id)
           .then(res => {
-            console.log("got collections ", res)
             this.setState({
               collections: res,
               gotUser: true,
               user: user
             })
-            console.log("state ", this.state)
           })
       })
-
-
       .catch(error => { console.log(error) })
   }
 
@@ -89,7 +81,7 @@ class App extends Component {
 
   getLinks = (id) => {
     return new Promise((resolve, reject) => {
-      fetch(`http://list-links.herokuapp.com/api/link/s/${id}`)
+      fetch(`https://list-links.herokuapp.com/api/link/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -104,7 +96,6 @@ class App extends Component {
     return new Promise((resolve, reject) => {
       this.getLinks(id)
         .then(res => {
-          console.log("got links ", res)
           this.setState({
             links: res
           })
@@ -116,7 +107,6 @@ class App extends Component {
 
   refreshLinks = (id) => {
     return new Promise((resolve, reject) => {
-      console.log("refreshLinks ", id)
       this.getLinks(id)
         .then(res => {
           this.setState({ links: res })
@@ -152,7 +142,7 @@ class App extends Component {
           <Switch>
             <Route path="/" render={props => <Login handleLogin={this.handleLogin} />} exact />
             <Route path="/user-home" render={props => <UserHome getDetails={this.getDetails} state={props} />} />
-            <Route path="/add-collection" render={props => <AddCollection getActive={this.getActive} state={props} />} />
+            <Route path="/add-collection" render={props => <AddCollection getActive={this.getActive} refreshCollections={this.refreshCollections} state={props} />} />
             <Route path="/delete-collection/:collectionId" render={props => <DeleteCollection refreshCollections={this.refreshCollections} state={props} />} />
             <Route path="/collection-details" render={props => <Collection setActive={this.setActive} getActive={this.getActive} getLinkList={this.getLinkList} getActiveLinks={this.getActiveLinks} state={props} />} />
             <Route path="/delete-link/" render={props => <DeleteLink state={props} refreshLinks={this.refreshLinks} />} />
