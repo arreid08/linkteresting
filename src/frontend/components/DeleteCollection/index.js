@@ -33,9 +33,9 @@ function DeleteCollection(props) {
     return (
         <div className='Delete'>
             <p className="dc-p">are you sure you want to delete this collection?</p>
-            <div className=".btn-group-justified p-4 m-4">
+            <div className=".btn-group-justified p-3 m-6">
                 <button
-                    className="button"
+                    className="buttonb"
                     type="submit"
                     value="Submit"
                     onClick={handleSubmit}
@@ -43,7 +43,7 @@ function DeleteCollection(props) {
                 </button>
                 <Link to='/user-home'>
                     <button
-                        className="button"
+                        className="buttonb"
                         type="submit"
                         value="Cancel"
                     >Cancel
