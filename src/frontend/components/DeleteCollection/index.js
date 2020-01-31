@@ -10,7 +10,7 @@ function DeleteCollection(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         let id = props.state.match.params.collectionId
-        fetch(`http://list-links.herokuapp.com/api/collection/${id}`, {
+        fetch(`https://list-links.herokuapp.com/api/collection/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

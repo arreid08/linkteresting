@@ -24,19 +24,19 @@ function AddCollection(props) {
       description: description
     }
 
-    fetch(`http://list-links.herokuapp.com/api/collection/${props.state.location.user._id}`, {
+    fetch(`https://list-links.herokuapp.com/api/collection/${props.state.location.user._id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-    .then((res) => {
-      props.refreshCollections(props.state.location.user._id)
-    })
-    .then(() => {
-      setDone(true)
-    })
+      .then((res) => {
+        props.refreshCollections(props.state.location.user._id)
+      })
+      .then(() => {
+        setDone(true)
+      })
   }
 
   return (

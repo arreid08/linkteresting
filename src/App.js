@@ -27,7 +27,7 @@ class App extends Component {
     return new Promise((resolve, reject) => {
       // let id = this.state.user._id
       console.log("getCollections id ", id)
-      fetch(`http://list-links.herokuapp.com/api/collection/s/${id}`)
+      fetch(`https://list-links.herokuapp.com/api/collection/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -40,7 +40,7 @@ class App extends Component {
 
   getUser = (name) => {
     return new Promise((resolve, reject) => {
-      fetch(`http://list-links.herokuapp.com/api/user/name/${name}`)
+      fetch(`https://list-links.herokuapp.com/api/user/name/${name}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)
@@ -89,7 +89,7 @@ class App extends Component {
 
   getLinks = (id) => {
     return new Promise((resolve, reject) => {
-      fetch(`http://list-links.herokuapp.com/api/link/s/${id}`)
+      fetch(`https://list-links.herokuapp.com/api/link/s/${id}`)
         .then(res => res.json())
         .then(res => {
           resolve(res)

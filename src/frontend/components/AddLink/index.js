@@ -24,7 +24,7 @@ function AddLink(props) {
       link: link
     }
 
-    fetch(`http://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
+    fetch(`https://list-links.herokuapp.com/api/link/${props.state.location.collectionId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

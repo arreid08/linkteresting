@@ -26,7 +26,7 @@ function Edit(props) {
     console.log("link id", props.state.location.linkId)
     console.log("data ", data)
     console.log("title and link ", title, link)
-    const url = `http://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
+    const url = `https://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
     console.log("url ", url)
     fetch(url, {
       method: 'PUT',
