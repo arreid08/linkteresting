@@ -1,3 +1,14 @@
+.titleColl {
+    padding: 10px;    
+    margin: auto;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: black;
+    letter-spacing: 4px;
+    width: 70%;
+}
+
 .btn-primary {
     width: 5px;
     height: 5px;
@@ -5,30 +16,89 @@
 }
 
 .btn-group {
+    /* border: red solid 1px; */
     background-color: white;
     width: 60%;
     margin: auto;
 }
-/* .link-list {
+
+.descColl {
+    /* border: pink solid 1px; */
+    padding: 20px;    
+    margin: auto;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: black;
+    letter-spacing: 2px;
+    width: 100%;
+    left: 50%;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    cursor: pointer;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.edDel {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.edDel {
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.linkbutt {
+    border: black solid 1px;
+    display: block;
+    color: black;
+    text-align: center;
+   
+
+}
+
+.ul {
     border: black solid 1px;
     display: block;
     list-style-type: none;
     margin: auto;
     padding: 0;
     width: 70px;
+} 
+
+li {
     display: block;
 }
 
-a  {
-    display: block;
-    width: 60px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-} */
-
+@media screen and (min-width: 415px) {
+    .containerC {
+        /* background: none; */
+        border: none;
+        /* background: transparent; */
+        /* background-color: transparent !important; */
+        /* margin-left: auto;
+        margin-right: auto; */
+        margin: auto;
+        /* position absolute is what's removing the background */
+        position: absolute;
+        /* display: relative;   */
+        width: 100%;
+        left: 30%;
+    }
+}
