@@ -24,10 +24,8 @@ function Collection(props) {
                 setLinks(props.getActiveLinks())
                 console.log("setting data")
             }
-
         }
-
-    }, [])
+    }, [props])
 
     return (
         <div>

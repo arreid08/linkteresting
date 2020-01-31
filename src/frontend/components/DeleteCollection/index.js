@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './DeleteCollection.css'
 import { Link, Redirect } from 'react-router-dom'
 
@@ -29,7 +29,6 @@ function DeleteCollection(props) {
             })
         setDone(true)
     }
-
 
     return (
         <div className='Delete'>

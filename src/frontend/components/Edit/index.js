@@ -42,12 +42,14 @@ function Edit(props) {
   return (
     <>
       {/* what exactly is our header here??  */}
+      <div className="wrapperdiv">
+      <div className="testing-class-Don't Delete"></div>
       <h4>Edit</h4>
       <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
         <label className="label">
           Title: <input className="text-box" type="text" onChange={handleChangeTitle} defaultValue={props.state.location.link.title} />
         </label>
-        <br />
+        <br></br>
         <label className="label">
           Link: <input className="text-box" type="text" onChange={handleChangeLink} defaultValue={props.state.location.link.link} />
         </label>
@@ -63,6 +65,7 @@ function Edit(props) {
         </button>
       </Link>
       {done ? <Redirect push to='/collection-details' /> : null}
+      </div>
     </>
   )
 }

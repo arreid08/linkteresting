@@ -9,6 +9,6 @@ describe('Adding Link Testing', () => {
 	// we will write one individual test
     it('should have a header that says "Add a new link"', () => {
         const component = shallow(<AddLink/>)
-        expect(component.contains(<h4>Add a new link</h4>)).toBe(true)
+        expect(component.contains(<h6 className="ALTitle">ADD LINK</h6>)).toBe(true)
       })
   })

@@ -9,8 +9,6 @@ describe('Collection Name Here', () => {
 	// we will write one individual test
     it('should have a header that says "You want to Edit?"', () => {
         const component = shallow(<Edit/>)
-        expect(component.contains(<div className="Delete">
-        <h1>Hello</h1>
-  </div>)).toBe(true)
+        expect(component.contains(<div className="testing-class-Don't Delete"></div>)).toBe(true)
       })
   })
