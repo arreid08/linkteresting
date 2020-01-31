@@ -1,57 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Edit.css'
 import { Link, Redirect } from 'react-router-dom'
-
 function Edit(props) {
-
   const [title, setTitle] = useState([])
   const [link, setLink] = useState([])
   const [done, setDone] = useState(false)
 
+  useEffect(() => {
+    setTitle(props.state.location.link.title)
+    setLink(props.state.location.link.link)
+  }, [])
+
   const handleChangeTitle = (e) => {
     setTitle(e.target.value)
   }
-
   const handleChangeLink = (e) => {
     setLink(e.target.value)
   }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     const data = {
       title: title,
       link: link
     }
-    console.log(props.state.location.linkId)
-    fetch(`https://www.list-links.herokuapp.com/api/link/${props.state.location.linkId}`, {
+    console.log("link id", props.state.location.linkId)
+    console.log("data ", data)
+    console.log("title and link ", title, link)
+    const url = `http://list-links.herokuapp.com/api/link/${props.state.location.linkId}`
+    console.log("url ", url)
+    fetch(url, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
-
       },
       body: JSON.stringify(data)
     })
-      .then((res) => {
-        props.refreshLinks(props.state.collectionId)
-      })
-      .then(() => {
-        setDone(true)
-      })
+    // .then((res) => {
+    //   props.refreshLinks(props.state.collectionId)
+    // })
+    // .then(() => {
+    //   setDone(true)
+    // })
   }
-
   return (
     <>
       {/* what exactly is our header here??  */}
-      <div className="wrapperdiv">
-      <div className="testing-class-Don't Delete"></div>
       <h4>Edit</h4>
-      <form className="form" action="/action_page.php" onSubmit={handleSubmit} method="post">
+      <form className="form" action="/action_page.php" onSubmit={(e) => handleSubmit(e)} method="post">
         <label className="label">
-          Title: <input className="text-box" type="text" onChange={handleChangeTitle} defaultValue={props.state.location.link.title} />
+          Title: <input className="text-box" type="text" onChange={handleChangeTitle} value={title} />
         </label>
-        <br></br>
+        <br />
         <label className="label">
-          Link: <input className="text-box" type="text" onChange={handleChangeLink} defaultValue={props.state.location.link.link} />
+          Link: <input className="text-box" type="text" onChange={handleChangeLink} value={link} />
         </label>
         <br />
         <input className="button" type="submit" value="Submit" />
@@ -65,9 +66,8 @@ function Edit(props) {
         </button>
       </Link>
       {done ? <Redirect push to='/collection-details' /> : null}
-      </div>
     </>
   )
 }
-
 export default Edit
+
