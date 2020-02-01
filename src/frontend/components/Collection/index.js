@@ -40,11 +40,11 @@ function Collection(props) {
                 </Link>
             </nav>
 
-            <div className="containerC">
-                <div className="col">
-                    <div className="col-sm-4">
+            <div className="containerC text-center">
+                <div className="col text-center">
+                    <div className="col-sm-4 text-center">
                         <h6 className="descColl">{collection.description}</h6>
-                        <div className="btn-group linkbutt">
+                        <div className="btn-group text-center linkbutt">
                             {links.map((item,i) => (
                                 <ul className="link-list" key={i}>
                                     <li>
