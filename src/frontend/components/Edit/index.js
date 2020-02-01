@@ -46,17 +46,17 @@ function Edit(props) {
   return (
     <>
       {/* what exactly is our header here??  */}
-      <h4>Edit</h4>
+      <h4 className="AddTitle">Edit</h4>
       <form className="form" action="/action_page.php" onSubmit={(e) => handleSubmit(e)} method="post">
-        <label className="label">
-          Title: <input className="text-box" type="text" onChange={handleChangeTitle} value={title} />
+        <label className="AddLabel, titleb">
+          Title: <input className="text-box, tb" type="text" onChange={handleChangeTitle} value={title} />
         </label>
         <br />
-        <label className="label">
-          Link: <input className="text-box" type="text" onChange={handleChangeLink} value={link} />
+        <label className="AddLabel, titleb">
+          Link: <input className="text-box, tb" type="text" onChange={handleChangeLink} value={link} />
         </label>
         <br />
-        <input className="button" type="submit" value="Submit" />
+        <input className="button, butt" type="submit" value="Submit" />
       </form>
       <Link to='/collection-details'>
         <button
